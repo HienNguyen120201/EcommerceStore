@@ -2206,121 +2206,89 @@ textarea.input {
 
 /*************************** LOGIN PAGE ***************************/
 /******************************************************************/
-
-.login {
-    background: linear-gradient(to bottom, #0099ff 0%, #fff 100%);
-    height: 100vh;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    display: flex;
+.login-page {
+    background-image: url("http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
 }
 
-    .login .account-login {
-        width: 25%;
+.container {
+    height: 100%;
+    align-content: center;
+}
+
+.card {
+    height: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 400px;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.social_icon span {
+    font-size: 60px;
+    margin-left: 10px;
+    color: #ffc312;
+}
+
+    .social_icon span:hover {
+        color: white;
+        cursor: pointer;
     }
 
-        .login .account-login h1 {
-            padding-left: 20%;
-            padding-right: 20%;
-        }
+.card-header h3 {
+    color: white;
+}
 
-        .login .account-login .login-form {
-            background: #fff;
-            float: left;
-            width: 100%;
-            padding: 40px;
-            border-radius: 5px;
-        }
+.social_icon {
+    position: absolute;
+    right: 20px;
+    top: -45px;
+}
 
-            .login .account-login .login-form .form-control:focus {
-                box-shadow: none;
-            }
+.input-group-prepend span {
+    width: 50px;
+    background-color: #ffc312;
+    color: black;
+    border: 0 !important;
+}
 
-        .login .account-login h1 {
-            font-size: 25px;
-            text-align: left;
-            color: #fff;
-            text-transform: uppercase;
-            font-weight: bold;
-            border-radius: 5px;
-        }
+input:focus {
+    outline: 0 0 0 0 !important;
+    box-shadow: 0 0 0 0 !important;
+}
 
-        .login .account-login .login-form input {
-            width: 100%;
-            position: relative;
-            border-bottom: 1px solid #a39e9e;
-            padding: 0;
-            border-top: 0px;
-            border-left: 0px;
-            border-right: 0px;
-            box-shadow: none;
-            height: 63px;
-            border-radius: 0px;
-        }
+.remember {
+    color: white;
+}
 
+    .remember input {
+        width: 20px;
+        height: 20px;
+        margin-left: 15px;
+        margin-right: 5px;
+    }
 
+.login_btn {
+    color: black;
+    background-color: #ffc312;
+    width: 120px;
+}
 
-        .login .account-login .login-form button {
-            width: 100%;
-            background: #009cff;
-            font-size: 20px;
-            padding: 11px;
-            color: #fff;
-            border: 0px;
-            margin: 10px 0px 20px;
-        }
+    .login_btn:hover {
+        color: black;
+        background-color: white;
+    }
 
-        .login .account-login .login-form p {
-            float: left;
-            width: 100%;
-            text-align: center;
-            font-size: 14px;
-        }
+.links {
+    color: white;
+}
 
-        .login .account-login .login-form .remember {
-            float: left;
-            width: 100%;
-            margin: 10px 0 0;
-        }
+    .links a {
+        margin-left: 4px;
+    }
 
-            /* Customize the label (the container) */
-            .login .account-login .login-form .remember .custom-checkbox {
-                display: block;
-                position: relative;
-                padding-left: 27px;
-                margin-bottom: 12px;
-                cursor: pointer;
-                font-size: 13px;
-                -webkit-user-select: none;
-                -moz-user-select: none;
-                -ms-user-select: none;
-                user-select: none;
-                font-weight: normal;
-                padding-top: 2px;
-                float: left;
-            }
-
-                /* Hide the browser's default checkbox */
-                .login .account-login .login-form .remember .custom-checkbox input {
-                    position: absolute;
-                    opacity: 0;
-                    cursor: pointer;
-                    height: 0;
-                    width: 0;
-                }
-
-                /* Create a custom checkbox */
-                .login .account-login .login-form .remember .custom-checkbox .checkmark {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    height: 20px;
-                    width: 20px;
-                    background-color: #bfbcbc;
-                }
-
-/* On mouse-over, add a grey background color */
 
 /******************************************************************/
 /*************************** LOGIN PAGE ***************************/
