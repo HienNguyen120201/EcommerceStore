@@ -4,26 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
-    <title>Electro - HTML Ecommerce Template</title>
-
-    <!-- Google font -->
+    <title>EcommerceStore</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
-
-    <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-    <!-- Slick -->
     <link type="text/css" rel="stylesheet" href="~/css/slick.css" />
     <link type="text/css" rel="stylesheet" href="~/css/slick-theme.css" />
-
-    <!-- nouislider -->
     <link type="text/css" rel="stylesheet" href="~/css/nouislider.min.css" />
     <link type="text/css" rel="stylesheet" href="~/css/site.css" />
-
-
-    <!-- Font Awesome Icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 </head>
@@ -36,9 +23,7 @@
                     <li><a href="#"><i class="far fa-envelope"></i>Hien@hcmut.edu.vn</a></li>
                     <li><a href="#"><i class="fa fa-map-marker"></i>Ho Chi Minh</a></li>
                 </ul>
-                <ul class="header-links pull-right">
-                    <li><a href="#"><i class="fa fa-user"></i>Login</a></li>
-                </ul>
+                <partial name="_LoginPartial"/>
             </div>
         </div>
         <!-- /TOP HEADER -->
@@ -70,7 +55,6 @@
                     <!-- ACCOUNT -->
                     <div class="col-md-3 clearfix">
                         <div class="header-ctn">
-                            <!-- /Wishlist -->
                             <!-- Cart -->
                             <div>
                                 <a href="#">
@@ -96,10 +80,10 @@
                 <div id="responsive-nav">
                     <!-- NAV -->
                     <ul class="main-nav nav navbar-nav">
-                        <li class="active"><a href="#">Trang chủ</a></li>
-                        <li><a href="#">Laptop</a></li>
-                        <li><a href="#">Di động</a></li>
-                        <li><a href="#">Phụ kiện</a></li>
+                        <li><a href="#">Trang chủ</a></li>
+                        <li><a href="@Url.Action("Laptop","Product")">Laptop</a></li>
+                        <li><a href="@Url.Action("Smart","Product")">Di động</a></li>
+                        <li><a href="@Url.Action("Accessory","Product")">Phụ kiện</a></li>
                     </ul>
                     <!-- /NAV -->
                 </div>
