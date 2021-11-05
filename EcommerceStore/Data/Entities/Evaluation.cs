@@ -6,14 +6,18 @@ using System.Threading.Tasks;
 
 namespace EcommerceStore.Data.Entities
 {
-    public class Description
+    public class Evaluation
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int DescId { get; set; }
+        public int EvalID { get; set; }
         public int ProductId { get; set; }
-        public string Desc { get; set; }
-        public string ImgUrl { get; set; }
+        public Guid CustomerId { get; set; }
+        public int Rating { get; set; }
+        public string Comment { get; set; }
+        public DateTime EvalTime { get; set; }
 
+        public Customer Customer {get;set;}
         public Product Product { get; set; }
+
     }
 }

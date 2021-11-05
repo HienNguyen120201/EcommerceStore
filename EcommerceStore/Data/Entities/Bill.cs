@@ -15,6 +15,7 @@ namespace EcommerceStore.Data.Entities
         public int TotalPrice { get; set; }
         public string AddressReceive { get; set; }
         public Guid CustomerId { get; set; }
+
         public Customer Customer { get; set; }
         public List<BillProduct> Products { get; set; }
     }

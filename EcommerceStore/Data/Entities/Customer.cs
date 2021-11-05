@@ -13,5 +13,6 @@ namespace EcommerceStore.Data.Entities
         public int Point { get; set; }
 
         public List<Bill> Bills { get; set; }
+        public List<Evaluation> Evaluations { get; set; }
     }
 }
