@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
@@ -5,6 +6,26 @@ a.navbar-brand {
   white-space: normal;
   text-align: center;
   word-break: break-all;
+=======
+﻿/*=========================================================
+	01 -> GENERAL
+===========================================================*/
+
+/*----------------------------*\
+	Typography
+\*----------------------------*/
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #2B2D42;
+    font-weight: 700;
+    margin: 0 0 10px;
+>>>>>>> Stashed changes
 }
 
 /* Provide sufficient contrast against white background */
@@ -69,3 +90,223 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+<<<<<<< Updated upstream
+=======
+
+    .slick-prev:hover, .slick-prev:focus, .slick-next:hover, .slick-next:focus {
+        background-color: #D10024;
+        border-color: #D10024;
+    }
+
+    .slick-prev:before, .slick-next:before {
+        font-family: FontAwesome;
+        color: #2B2D42;
+    }
+
+    .slick-prev:before {
+        content: "\f104";
+    }
+
+    .slick-next:before {
+        content: "\f105";
+    }
+
+    .slick-prev:hover:before, .slick-prev:focus:before, .slick-next:hover:before, .slick-next:focus:before {
+        color: #FFF;
+    }
+
+.slick-prev {
+    left: -20px;
+}
+
+.slick-next {
+    right: -20px;
+}
+
+/*----------------------------*\
+	Dots
+\*----------------------------*/
+
+.slick-dots li, .slick-dots li button, .slick-dots li button:before {
+    width: 10px;
+    height: 10px;
+}
+
+    .slick-dots li button:before {
+        content: "";
+        opacity: 1;
+        background: #E4E7ED;
+        border-radius: 50%;
+    }
+
+    .slick-dots li.slick-active button:before {
+        background-color: #D10024;
+    }
+
+.custom-dots .slick-dots {
+    position: static;
+    margin: 15px 0px;
+}
+
+/*=========================================================
+	13 -> RESPONSIVE
+===========================================================*/
+
+@media only screen and (max-width: 1201px) {
+}
+
+@media only screen and (max-width: 991px) {
+    #top-header .header-links.pull-left {
+        float: none !important;
+    }
+
+    #top-header .header-links.pull-right {
+        float: none !important;
+        margin-top: 5px;
+    }
+
+    .header-logo {
+        float: none;
+        text-align: center;
+    }
+
+        .header-logo .logo {
+            display: inline-block;
+        }
+
+    #product-imgs {
+        margin-bottom: 60px;
+        margin-top: 15px;
+    }
+
+    #rating {
+        text-align: center;
+    }
+
+    #reviews {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .section-title .section-nav {
+        float: none;
+        margin-top: 10px;
+    }
+
+    .section-tab-nav li {
+        margin-top: 10px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    [class*='col-xs'] {
+        width: 100%;
+    }
+
+    .store-grid {
+        float: none;
+        margin-top: 10px;
+    }
+
+    .store-pagination {
+        float: none;
+        margin-top: 10px;
+    }
+}
+
+/*************************** LOGIN PAGE ***************************/
+/******************************************************************/
+.login-page {
+    background-image: url("http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+.container {
+    height: 100%;
+    align-content: center;
+}
+
+.card {
+    height: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 400px;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}
+.card .card-footer a{
+    color:red;
+}
+.card .card-footer a:hover{
+    color:blue;
+}
+.social_icon span {
+    font-size: 60px;
+    margin-left: 10px;
+    color: #ffc312;
+}
+
+    .social_icon span:hover {
+        color: white;
+        cursor: pointer;
+    }
+
+.card-header h3 {
+    color: white;
+}
+
+.social_icon {
+    position: absolute;
+    right: 20px;
+    top: -45px;
+}
+
+.input-group-prepend span {
+    width: 50px;
+    background-color: #ffc312;
+    color: black;
+    border: 0 !important;
+}
+
+input:focus {
+    outline: 0 0 0 0 !important;
+    box-shadow: 0 0 0 0 !important;
+}
+
+.remember {
+    color: white;
+}
+
+    .remember input {
+        width: 20px;
+        height: 20px;
+        margin-left: 15px;
+        margin-right: 5px;
+    }
+
+.login_btn {
+    color: black;
+    background-color: #ffc312;
+    width: 120px;
+}
+
+    .login_btn:hover {
+        color: black;
+        background-color: white;
+    }
+
+.links {
+    color: white;
+}
+
+    .links a {
+        margin-left: 4px;
+    }
+
+
+/******************************************************************/
+/*************************** LOGIN PAGE ***************************/
+>>>>>>> Stashed changes
