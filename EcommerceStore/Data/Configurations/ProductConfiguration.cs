@@ -18,8 +18,7 @@ namespace EcommerceStore.Data.Configurations
             builder.Property(product => product.Name);
             builder.Property(product => product.Producer);
             builder.Property(product => product.Price);
-            builder.Property(product => product.Storage);
-            builder.Property(product => product.Color);
+            builder.Property(product => product.ImgUrl);
             builder.Property(product => product.Status);
         }
     }

@@ -13,9 +13,8 @@ namespace EcommerceStore.Data.Entities
         public string Name { get; set; }
         public string Producer { get; set; }
         public int Price { get; set; }
-        public int Storage { get; set; }
-        public string Color { get; set; }
         public string Status { get; set; }
+        public string ImgUrl { get; set; }
         public List<Description> Desc { get; set; }
     }
 }
