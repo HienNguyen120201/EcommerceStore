@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using EcommerceStore.Models;
+using EcommerceStore.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using EcommerceStore.Models;
-using EcommerceStore.Services;
+using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace EcommerceStore.Controllers
 {
@@ -70,6 +67,13 @@ namespace EcommerceStore.Controllers
             }
 
             return RedirectToAction("Login");
+        }
+
+        [Route("Logout")]
+        public async Task<IActionResult> Logout()
+        {
+            await _customerService.SignOutAsync();
+            return RedirectToAction("Index");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

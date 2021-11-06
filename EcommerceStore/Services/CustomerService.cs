@@ -60,5 +60,10 @@ namespace EcommerceStore.Services
             }
             return false;
         }
+
+        public async Task SignOutAsync()
+        {
+            await _signInManager.SignOutAsync();
+        }
     }
 }
