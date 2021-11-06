@@ -67,5 +67,21 @@ namespace EcommerceStore.Services
                                 }).ToListAsync();
             return accessory;
         }
+        public async Task<ProductViewModel> GetProductAsync(int id)
+        {
+            var product = await (from p in _context.Product
+                                 where p.ProductId == id
+                                 select new ProductViewModel
+                                 {
+                                     ImgUrl = p.ImgUrl,
+                                     ProductId = p.ProductId,
+                                     Name = p.Name,
+                                     Price = p.Price,
+                                     Producer = p.Producer,
+                                     Rating = p.Rating,
+                                     Status = p.Status
+                                 }).FirstOrDefaultAsync();
+            return product;
+        }
     }
 }

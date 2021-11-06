@@ -29,5 +29,10 @@ namespace EcommerceStore.Controllers
             var accessory = await _productService.GetAccessoryAsync();
             return View(accessory);
         }
+        public async Task<IActionResult> Product(int id)
+        {
+            var product = await _productService.GetProductAsync(id);
+            return View(product);
+        }
     }
 }
