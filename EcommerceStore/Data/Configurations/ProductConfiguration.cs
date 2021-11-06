@@ -21,6 +21,7 @@ namespace EcommerceStore.Data.Configurations
             builder.Property(product => product.ImgUrl);
             builder.Property(product => product.Status);
             builder.Property(product => product.Rating);
+            builder.Property(product => product.Special);
         }
     }
 }
