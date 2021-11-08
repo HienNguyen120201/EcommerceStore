@@ -14,62 +14,62 @@
             <div id="aside" class="col-md-3">
                 <!-- aside Widget -->
                 <div class="aside">
-                    <h3 class="aside-title">Categories</h3>
+                    <h3 class="aside-title">Loại phụ kiện</h3>
                     <div class="checkbox-filter">
+                        <form asp-controller="Product" asp-action="Accessory" method="post">
+                            <div class="input-checkbox">
+                                <input type="checkbox" id="category-1" value="Bàn phím" name="Category[]">
+                                <label for="category-1">
+                                    <span></span>
+                                    Bàn phím
+                                </label>
+                            </div>
 
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="category-1">
-                            <label for="category-1">
-                                <span></span>
-                                Món Khai vị
-                                <small>(120)</small>
-                            </label>
-                        </div>
+                            <div class="input-checkbox">
+                                <input type="checkbox" id="category-2" value="Chuột" name="Category[]">
+                                <label for="category-2">
+                                    <span></span>
+                                    Chuột
+                                </label>
+                            </div>
 
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="category-2">
-                            <label for="category-2">
-                                <span></span>
-                                Món ăn chính
-                                <small>(740)</small>
-                            </label>
-                        </div>
+                            <div class="input-checkbox">
+                                <input type="checkbox" id="category-3" value="Tai nghe" name="Category[]">
+                                <label for="category-3">
+                                    <span></span>
+                                    Tai nghe
+                                </label>
+                            </div>
 
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="category-3">
-                            <label for="category-3">
-                                <span></span>
-                                Món tráng miệng
-                                <small>(1450)</small>
-                            </label>
-                        </div>
+                            <div class="input-checkbox">
+                                <input type="checkbox" id="category-4" value="Ổ cứng" name="Category[]">
+                                <label for="category-4">
+                                    <span></span>
+                                    Ổ cứng
+                                </label>
+                            </div>
 
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="category-4">
-                            <label for="category-4">
-                                <span></span>
-                                Rượu
-                                <small>(578)</small>
-                            </label>
-                        </div>
+                            <div class="input-checkbox">
+                                <input type="checkbox" id="category-5" value="Pin điện thoại" name="Category[]">
+                                <label for="category-5">
+                                    <span></span>
+                                    Pin điện thoại
+                                </label>
+                            </div>
 
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="category-5">
-                            <label for="category-5">
-                                <span></span>
-                                Bia
-                                <small>(120)</small>
-                            </label>
-                        </div>
-
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="category-6">
-                            <label for="category-6">
-                                <span></span>
-                                Nước ngọt
-                                <small>(740)</small>
-                            </label>
-                        </div>
+                            <div class="input-checkbox">
+                                <input type="checkbox" id="category-6" value="Sạc điện thoại" name="Category[]">
+                                <label for="category-6">
+                                    <span></span>
+                                    Sạc điện thoại
+                                </label>
+                            </div>
+                            <div class="input-checkbox">
+                                <input type="submit" id="category-7" value="Lọc danh sách" style="background-color:yellow">
+                                <label for="category-10">
+                                </label>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -81,7 +81,7 @@
                     @foreach (var laptop in Model)
                     {
                         <!-- product -->
-                        <form asp-action="InsertFoodToCart" asp-controller="Menu" method="post">
+                        <form asp-action="InsertProduct" asp-controller="Product" method="post">
                             <div class="col-md-4 col-xs-6">
                                 <div class="product">
                                     <div class="product-img">
@@ -102,8 +102,7 @@
                                     </div>
                                     <div class="add-to-cart">
                                         <button class="add-to-cart-btn" type="submit">
-                                            <i class="fa fa-shopping-cart"></i> add to
-                                            cart
+                                            <i class="fa fa-shopping-cart"></i> add to cart
                                         </button>
                                     </div>
                                 </div>

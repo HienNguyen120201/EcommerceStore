@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EcommerceStore.Services;
+using EcommerceStore.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EcommerceStore.Controllers
@@ -24,14 +25,15 @@ namespace EcommerceStore.Controllers
             var smart = await _productService.GetSmartAsync();
             return View(smart);
         }
-        public async Task<IActionResult> Accessory()
+        public async Task<IActionResult> Accessory(string[] Category)
         {
-            var accessory = await _productService.GetAccessoryAsync();
+            var accessory = await _productService.GetAccessoryAsync(Category);
             return View(accessory);
         }
-        public async Task<IActionResult> Product(int id)
+        public async Task<IActionResult> Product(ProductViewModel product,int id)
         {
-            var product = await _productService.GetProductAsync(id);
+            product = await _productService.GetProductAsync(id);
+            product.Descriptions = await _productService.GetDescriptionAsync(id);
             return View(product);
         }
     }
