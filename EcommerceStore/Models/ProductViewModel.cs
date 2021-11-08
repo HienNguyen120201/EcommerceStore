@@ -14,5 +14,6 @@ namespace EcommerceStore.Models
         public int Price { get; set; }
         public string ImgUrl { get; set; }
         public int Rating { get; set; }
+        public List<DescriptionViewModel> Descriptions { get; set; }
     }
 }

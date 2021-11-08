@@ -10,7 +10,8 @@ namespace EcommerceStore.Services
     {
         Task<List<ProductViewModel>> GetLaptopAsync();
         Task<List<ProductViewModel>> GetSmartAsync();
-        Task<List<ProductViewModel>> GetAccessoryAsync();
+        Task<List<ProductViewModel>> GetAccessoryAsync(string[] Category);
         Task<ProductViewModel> GetProductAsync(int id);
+        Task<List<DescriptionViewModel>> GetDescriptionAsync(int productId);
     }
 }
