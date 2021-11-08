@@ -17,53 +17,66 @@
                     <h3 class="aside-title">Nhà sản xuất</h3>
                     <div class="checkbox-filter">
 
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="category-1">
-                            <label for="category-1">
-                                <span></span>
-                                Apple
-                            </label>
-                        </div>
+                        <form asp-controller="Product" asp-action="Laptop" method="post">
+                            <div class="input-checkbox">
+                                <input type="checkbox" id="category-1" value="Apple" name="Category[]">
+                                <label for="category-1">
+                                    <span></span>
+                                    Apple
+                                </label>
+                            </div>
 
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="category-2">
-                            <label for="category-2">
-                                <span></span>
-                                Dell
-                            </label>
-                        </div>
+                            <div class="input-checkbox">
+                                <input type="checkbox" id="category-2" value="Dell" name="Category[]">
+                                <label for="category-2">
+                                    <span></span>
+                                    Dell
+                                </label>
+                            </div>
 
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="category-3">
-                            <label for="category-3">
-                                <span></span>
-                                Asus
-                            </label>
-                        </div>
+                            <div class="input-checkbox">
+                                <input type="checkbox" id="category-3" value="Asus" name="Category[]">
+                                <label for="category-3">
+                                    <span></span>
+                                    Asus
+                                </label>
+                            </div>
 
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="category-4">
-                            <label for="category-4">
-                                <span></span>
-                                Lenevo
-                            </label>
-                        </div>
+                            <div class="input-checkbox">
+                                <input type="checkbox" id="category-4" value="Lenevo" name="Category[]">
+                                <label for="category-4">
+                                    <span></span>
+                                    Lenevo
+                                </label>
+                            </div>
 
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="category-5">
-                            <label for="category-5">
-                                <span></span>
-                                MSI
-                            </label>
-                        </div>
+                            <div class="input-checkbox">
+                                <input type="checkbox" id="category-5" value="MSI" name="Category[]">
+                                <label for="category-5">
+                                    <span></span>
+                                    MSI
+                                </label>
+                            </div>
 
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="category-6">
-                            <label for="category-6">
-                                <span></span>
-                                HP
-                            </label>
-                        </div>
+                            <div class="input-checkbox">
+                                <input type="checkbox" id="category-6" value="HP" name="Category[]">
+                                <label for="category-6">
+                                    <span></span>
+                                    HP
+                                </label>
+                            </div>
+                            <div class="input-checkbox">
+                                <input type="checkbox" id="category-7" value="Acer" name="Category[]">
+                                <label for="category-7">
+                                    <span></span>
+                                    Acer
+                                </label>
+                            </div>
+                            <div class="input-checkbox">
+                                <input type="submit" value="Lọc danh sách" style="background-color:yellow">
+                            </div>
+                        </form>
+
                     </div>
                 </div>
             </div>

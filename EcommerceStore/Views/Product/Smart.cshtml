@@ -17,53 +17,59 @@
                     <h3 class="aside-title">Nhà sản xuất</h3>
                     <div class="checkbox-filter">
 
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="category-1">
-                            <label for="category-1">
-                                <span></span>
-                                Apple
-                            </label>
-                        </div>
+                        <form asp-controller="Product" asp-action="Smart" method="post">
+                            <div class="input-checkbox">
+                                <input type="checkbox" id="category-1" value="Apple" name="Category[]">
+                                <label for="category-1">
+                                    <span></span>
+                                    Apple
+                                </label>
+                            </div>
 
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="category-2">
-                            <label for="category-2">
-                                <span></span>
-                                Samsung
-                            </label>
-                        </div>
+                            <div class="input-checkbox">
+                                <input type="checkbox" id="category-2" value="Samsung" name="Category[]">
+                                <label for="category-2">
+                                    <span></span>
+                                    Samsung
+                                </label>
+                            </div>
 
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="category-3">
-                            <label for="category-3">
-                                <span></span>
-                                Xiaomi
-                            </label>
-                        </div>
+                            <div class="input-checkbox">
+                                <input type="checkbox" id="category-3" value="Xiaomi" name="Category[]">
+                                <label for="category-3">
+                                    <span></span>
+                                    Xiaomi
+                                </label>
+                            </div>
 
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="category-4">
-                            <label for="category-4">
-                                <span></span>
-                                Oppo
-                            </label>
-                        </div>
+                            <div class="input-checkbox">
+                                <input type="checkbox" id="category-4" value="Oppo" name="Category[]">
+                                <label for="category-4">
+                                    <span></span>
+                                    Oppo
+                                </label>
+                            </div>
 
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="category-5">
-                            <label for="category-5">
-                                <span></span>
-                                Huwei
-                            </label>
-                        </div>
+                            <div class="input-checkbox">
+                                <input type="checkbox" id="category-5" value="Huwei" name="Category[]">
+                                <label for="category-5">
+                                    <span></span>
+                                    Huwei
+                                </label>
+                            </div>
 
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="category-6">
-                            <label for="category-6">
-                                <span></span>
-                                Vivo
-                            </label>
-                        </div>
+                            <div class="input-checkbox">
+                                <input type="checkbox" id="category-6" value="Vivo" name="Category[]">
+                                <label for="category-6">
+                                    <span></span>
+                                    Vivo
+                                </label>
+                            </div>
+                            <div class="input-checkbox">
+                                <input type="submit" value="Lọc danh sách" style="background-color:yellow">
+                            </div>
+                        </form>
+
                     </div>
                 </div>
             </div>
