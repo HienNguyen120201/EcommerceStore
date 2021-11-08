@@ -136,7 +136,7 @@ namespace EcommerceStore.Services
                                    }).ToListAsync();
             return evalution;
         }
-        public async Task InsertEvalution(ClaimsPrincipal user,ProductViewModel product)
+        public async Task InsertEvalutionAsync(ClaimsPrincipal user,ProductViewModel product)
         {
             var customer = await _userManager.GetUserAsync(user);
             var evalution = new Evaluation()
@@ -158,6 +158,73 @@ namespace EcommerceStore.Services
             int ratings = (int)ratingsum;
             rating.Rating = ratings;
             _context.SaveChanges();
+        }
+        public async Task InsertProductAsync(ClaimsPrincipal user, ProductViewModel product)
+        {
+            var customer = await _userManager.GetUserAsync(user);
+            var currentCart = await (from b in _context.Bill
+                                     where b.CustomerId == customer.Id && b.PaymentMethod == string.Empty
+                                     select b).FirstOrDefaultAsync();
+            var billId = new int();
+            if(currentCart!=null)
+            {
+                billId = currentCart.BillId;
+                var productCurrentCart = await (from bd in _context.BillProduct
+                                                where bd.BillId == billId && bd.ProductId == product.InsertProductToCart.ProductId
+                                                select bd).FirstOrDefaultAsync();
+                if(productCurrentCart!=null)
+                {
+                    productCurrentCart.Quantity += product.InsertProductToCart.Quantity;
+                    productCurrentCart.TotalProductPrice = productCurrentCart.Quantity * productCurrentCart.ProductPrice;
+                    _context.SaveChanges();
+                    currentCart.TotalPrice = (from bd in _context.BillProduct
+                                         where bd.BillId == billId
+                                         select bd).Sum(x => x.TotalProductPrice);
+                }    
+                else
+                {
+                    var newBillProduct = new BillProduct()
+                    {
+                        BillId = billId,
+                        ProductId = product.InsertProductToCart.ProductId,
+                        ProductName = product.InsertProductToCart.Name,
+                        ProductPrice = product.InsertProductToCart.ProductPrice,
+                        Quantity = product.InsertProductToCart.Quantity,
+                        TotalProductPrice = product.InsertProductToCart.Quantity * product.InsertProductToCart.ProductPrice
+                    };
+                    _context.BillProduct.Add(newBillProduct);
+                    _context.SaveChanges();
+                }    
+            }
+            else
+            {
+                var newBill = new Bill()
+                {
+                    BillId = billId,
+                    CustomerId = customer.Id,
+                    TotalPrice = product.InsertProductToCart.Quantity * product.InsertProductToCart.ProductPrice,
+                    PaymentMethod = string.Empty,
+                    AddressReceive=string.Empty
+                };
+                _context.Bill.Add(newBill);
+                var newBillProduct = new BillProduct()
+                {
+                    BillId = billId,
+                    ProductId = product.InsertProductToCart.ProductId,
+                    ProductName = product.InsertProductToCart.Name,
+                    ProductPrice = product.InsertProductToCart.ProductPrice,
+                    Quantity = product.InsertProductToCart.Quantity,
+                    TotalProductPrice = product.InsertProductToCart.Quantity * product.InsertProductToCart.ProductPrice
+                };
+                _context.BillProduct.Add(newBillProduct);
+                _context.SaveChanges();
+                var newBillId = await (from b in _context.Bill
+                                       where b.BillId == billId
+                                       select b).FirstOrDefaultAsync();
+                newBillId.TotalPrice = (from bd in _context.BillProduct
+                                   where bd.BillId == billId
+                                   select bd).Sum(x => x.TotalProductPrice);
+            }
         }
     }
 }

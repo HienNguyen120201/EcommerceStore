@@ -17,5 +17,6 @@ namespace EcommerceStore.Models
         public List<DescriptionViewModel> Descriptions { get; set; }
         public List<EvaluationViewModel> Evalutions { get; set; }
         public InsertEvaluationViewModel InsertEvaluation { get; set; }
+        public InsertProductToCart InsertProductToCart { get; set; }
     }
 }

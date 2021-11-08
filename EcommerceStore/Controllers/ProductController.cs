@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using EcommerceStore.Services;
 using EcommerceStore.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace EcommerceStore.Controllers
 {
@@ -42,7 +43,15 @@ namespace EcommerceStore.Controllers
         {
             if (!User.Identity.IsAuthenticated)
                 return RedirectToAction("Login", "Home");
-            await _productService.InsertEvalution(User, product);
+            await _productService.InsertEvalutionAsync(User, product);
+            return RedirectToAction("Laptop");
+        }
+        [HttpPost]
+        public async Task<IActionResult> InsertProduct(ProductViewModel product)
+        {
+            if (!User.Identity.IsAuthenticated)
+                return RedirectToAction("Login", "Home");
+            await _productService.InsertProductAsync(User, product);
             return RedirectToAction("Laptop");
         }
     }

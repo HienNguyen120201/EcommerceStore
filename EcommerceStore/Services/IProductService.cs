@@ -15,6 +15,7 @@ namespace EcommerceStore.Services
         Task<ProductViewModel> GetProductAsync(int id);
         Task<List<DescriptionViewModel>> GetDescriptionAsync(int productId);
         Task<List<EvaluationViewModel>> GetEvaluationAsync(int productId);
-        Task InsertEvalution(ClaimsPrincipal user, ProductViewModel product);
+        Task InsertEvalutionAsync(ClaimsPrincipal user, ProductViewModel product);
+        Task InsertProductAsync(ClaimsPrincipal user, ProductViewModel product);
     }
 }
