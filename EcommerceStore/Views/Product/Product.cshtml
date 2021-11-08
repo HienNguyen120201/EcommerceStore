@@ -33,7 +33,7 @@
                         <a class="review-link" href="#tab1">Xem chi tiết và đánh giá</a>
                     </div>
                     <div>
-                        <h3 class="product-price">@Model.Price</h3><br>
+                        <h3 class="product-price">@Model.Price VND</h3><br>
                         <span class="product-available">Có sẵn trong kho</span>
                     </div>
                     <div class="product-options">
@@ -67,6 +67,7 @@
                                     <article class="area_article area_articleFull">
                                         @foreach (var des in Model.Descriptions)
                                         {
+                                            <h3>@des.MainDesc</h3>
                                             <p>@des.Desc</p>
                                             <p><img class="alignnone size-full wp-image-141456" src="@des.ImgUrl" alt="" width="1020" height="570"/></p>
                                         }
@@ -83,13 +84,12 @@
                                 <div class="col-md-3">
                                     <div id="rating">
                                         <div class="rating-avg">
-                                            <span>4.5</span>
+                                            <span>@Model.Rating</span>
                                             <div class="rating-stars">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-o"></i>
+                                                @for (int i = 0; i < Model.Rating; i++)
+                                                {
+                                                    <i class="fa fa-star"></i>
+                                                }
                                             </div>
                                         </div>
                                         <ul class="rating">
@@ -101,10 +101,19 @@
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
                                                 </div>
+                                                @{int count5 = 0; }
+
+                                                    @foreach (var eval in Model.Evalutions)
+                                                    {
+                                                        if (eval.Rating == 5)
+                                                        {
+                                                            count5++;
+                                                        }
+                                                    }
                                                 <div class="rating-progress">
-                                                    <div style="width: 80%;"></div>
+                                                    <div style="width: @(count5 * 20)%;"></div>
                                                 </div>
-                                                <span class="sum">3</span>
+                                                <span class="sum">@count5</span>
                                             </li>
                                             <li>
                                                 <div class="rating-stars">
@@ -112,51 +121,74 @@
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
                                                 </div>
+                                                @{int count4 = 0; }
+                                                @foreach (var eval in Model.Evalutions)
+                                                {
+
+                                                    if (eval.Rating == 4)
+                                                    {
+                                                        count4++;
+                                                    }
+                                                }
                                                 <div class="rating-progress">
-                                                    <div style="width: 60%;"></div>
+                                                    <div style="width: @(count4*20)%;"></div>
                                                 </div>
-                                                <span class="sum">2</span>
+                                                <span class="sum">@count4</span>
                                             </li>
                                             <li>
                                                 <div class="rating-stars">
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <i class="fa fa-star-o"></i>
                                                 </div>
+                                                @{int count3 = 0; }
+                                                @foreach (var eval in Model.Evalutions)
+                                                {
+                                                    if (eval.Rating == 3)
+                                                    {
+                                                        count3++;
+                                                    }
+                                                }
                                                 <div class="rating-progress">
-                                                    <div></div>
+                                                    <div style="width: @(count3*20)%;"></div>
                                                 </div>
-                                                <span class="sum">0</span>
+                                                <span class="sum">@count3</span>
                                             </li>
                                             <li>
                                                 <div class="rating-stars">
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <i class="fa fa-star-o"></i>
                                                 </div>
+                                                @{int count2 = 0; }
+                                                @foreach (var eval in Model.Evalutions)
+                                                {
+                                                    if (eval.Rating == 2)
+                                                    {
+                                                        count2++;
+                                                    }
+                                                }
                                                 <div class="rating-progress">
-                                                    <div></div>
+                                                    <div style="width: @(count2*20)%;"></div>
                                                 </div>
-                                                <span class="sum">0</span>
+                                                <span class="sum">@count2</span>
                                             </li>
                                             <li>
                                                 <div class="rating-stars">
                                                     <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <i class="fa fa-star-o"></i>
                                                 </div>
+                                                @{int count1 = 0; }
+                                                @foreach (var eval in Model.Evalutions)
+                                                {
+                                                    if (eval.Rating == 1)
+                                                    {
+                                                        count1++;
+                                                    }
+                                                }
                                                 <div class="rating-progress">
-                                                    <div></div>
+                                                    <div style="width: @(count1*20)%;"></div>
                                                 </div>
-                                                <span class="sum">0</span>
+                                                <span class="sum">@count1</span>
                                             </li>
                                         </ul>
                                     </div>
@@ -166,61 +198,24 @@
                                 <div class="col-md-6">
                                     <div id="reviews">
                                         <ul class="reviews">
-                                            <li>
-                                                <div class="review-heading">
-                                                    <h5 class="name">Hien</h5>
-                                                    <p class="date">27 DEC 2018, 8:0 PM</p>
-                                                    <div class="review-rating">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-o empty"></i>
+                                            @foreach (var eval in Model.Evalutions)
+                                            {
+                                                <li>
+                                                    <div class="review-heading">
+                                                        <h5 class="name">@eval.Fullname</h5>
+                                                        <p class="date">@eval.EvalTime.ToLocalTime().ToString("dd/MM/yyyy HH:mm")</p>
+                                                        <div class="review-rating">
+                                                            @for (int i = 0; i < eval.Rating; i++)
+                                                            {
+                                                                <i class="fa fa-star"></i>
+                                                            }
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="review-body">
-                                                    <p>Nhận xét</p>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="review-heading">
-                                                    <h5 class="name">Định</h5>
-                                                    <p class="date">27 DEC 2018, 8:0 PM</p>
-                                                    <div class="review-rating">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-o empty"></i>
+                                                    <div class="review-body">
+                                                        <p>@eval.Comment</p>
                                                     </div>
-                                                </div>
-                                                <div class="review-body">
-                                                    <p>Nhận xét</p>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="review-heading">
-                                                    <h5 class="name">Bình</h5>
-                                                    <p class="date">27 DEC 2018, 8:0 PM</p>
-                                                    <div class="review-rating">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-o empty"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="review-body">
-                                                    <p>Nhận xét</p>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                        <ul class="reviews-pagination">
-                                            <li class="active">1</li>
-                                            <li><a href="#">2</a></li>
-                                            <li><a href="#">3</a></li>
-                                            <li><a href="#">4</a></li>
-                                            <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                                                </li>
+                                            }
                                         </ul>
                                     </div>
                                 </div>
@@ -228,21 +223,27 @@
                                 <!-- Review Form -->
                                 <div class="col-md-3">
                                     <div id="review-form">
-                                        <form class="review-form">
-                                            <input class="input" type="text" placeholder="Tên">
-                                            <input class="input" type="email" placeholder="Email">
-                                            <textarea class="input" placeholder="Nhận xét"></textarea>
+                                        <form class="review-form text-center" asp-controller="Product" asp-action="InsertEvaluation" method="post">
+                                            <input class="input" type="text" placeholder="Nhận xét" name="product.InsertEvaluation.Comment" />
                                             <div class="input-rating">
                                                 <span>Xếp hạng: </span>
+                                                <div class="review-rating" style="color: red;">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                </div>
                                                 <div class="stars">
-                                                    <input id="star5" name="rating" value="5" type="radio"><label for="star5"></label>
-                                                    <input id="star4" name="rating" value="4" type="radio"><label for="star4"></label>
-                                                    <input id="star3" name="rating" value="3" type="radio"><label for="star3"></label>
-                                                    <input id="star2" name="rating" value="2" type="radio"><label for="star2"></label>
-                                                    <input id="star1" name="rating" value="1" type="radio"><label for="star1"></label>
+                                                    <input id="star5" name="product.InsertEvaluation.Rating" value="5" type="radio"><label for="star5"></label>
+                                                    <input id="star4" name="product.InsertEvaluation.Rating" value="4" type="radio"><label for="star4"></label>
+                                                    <input id="star3" name="product.InsertEvaluation.Rating" value="3" type="radio"><label for="star3"></label>
+                                                    <input id="star2" name="product.InsertEvaluation.Rating" value="2" type="radio"><label for="star2"></label>
+                                                    <input id="star1" name="product.InsertEvaluation.Rating" value="1" type="radio"><label for="star1"></label>
                                                 </div>
                                             </div>
-                                            <button class="primary-btn">Đánh giá</button>
+                                            <input type="hidden" name="product.InsertEvaluation.ProductId" value="@Model.ProductId"/>
+                                            <button type="submit" class="primary-btn">Đánh giá</button>
                                         </form>
                                     </div>
                                 </div>

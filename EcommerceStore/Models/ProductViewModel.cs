@@ -15,5 +15,7 @@ namespace EcommerceStore.Models
         public string ImgUrl { get; set; }
         public int Rating { get; set; }
         public List<DescriptionViewModel> Descriptions { get; set; }
+        public List<EvaluationViewModel> Evalutions { get; set; }
+        public InsertEvaluationViewModel InsertEvaluation { get; set; }
     }
 }
