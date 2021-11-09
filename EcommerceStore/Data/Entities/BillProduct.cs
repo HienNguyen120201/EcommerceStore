@@ -15,5 +15,6 @@ namespace EcommerceStore.Data.Entities
         public int TotalProductPrice { get; set; }
 
         public Bill Bill { get; set; }
+        public Product Product { get; set; }
     }
 }

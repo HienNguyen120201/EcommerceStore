@@ -14,7 +14,12 @@ namespace EcommerceStore.Data.Configurations
         {
             builder.ToTable("BILL");
             builder.HasKey(bill => bill.BillId);
-            builder.Property(bill => bill.AddressReceive);
+            builder.Property(bill => bill.UserName);
+            builder.Property(bill => bill.Thon);
+            builder.Property(bill => bill.Xa);
+            builder.Property(bill => bill.Huyen);
+            builder.Property(bill => bill.Tinh);
+            builder.Property(bill => bill.PhoneNumber);
             builder.Property(bill => bill.CustomerId);
             builder.Property(bill => bill.PaymentMethod);
             builder.Property(bill => bill.TotalPrice);

@@ -203,8 +203,7 @@ namespace EcommerceStore.Services
                     BillId = billId,
                     CustomerId = customer.Id,
                     TotalPrice = product.InsertProductToCart.Quantity * product.InsertProductToCart.ProductPrice,
-                    PaymentMethod = string.Empty,
-                    AddressReceive=string.Empty
+                    PaymentMethod = string.Empty
                 };
                 _context.Bill.Add(newBill);
                 var newBillProduct = new BillProduct()

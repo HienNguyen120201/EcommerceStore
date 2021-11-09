@@ -20,5 +20,7 @@ namespace EcommerceStore.Data.Entities
 
         public List<Description> Desc { get; set; }
         public List<Evaluation> Evaluations { get; set; }
+        public List<BillProduct> BillProducts { get; set; }
+
     }
 }
