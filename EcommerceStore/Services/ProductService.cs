@@ -166,7 +166,7 @@ namespace EcommerceStore.Services
                                      where b.CustomerId == customer.Id && b.PaymentMethod == string.Empty
                                      select b).FirstOrDefaultAsync();
             var billId = new int();
-            if(currentCart!=null)
+            if (currentCart!=null)
             {
                 billId = currentCart.BillId;
                 var productCurrentCart = await (from bd in _context.BillProduct
@@ -193,22 +193,24 @@ namespace EcommerceStore.Services
                         TotalProductPrice = product.InsertProductToCart.Quantity * product.InsertProductToCart.ProductPrice
                     };
                     _context.BillProduct.Add(newBillProduct);
-                    _context.SaveChanges();
-                }    
+                    currentCart.TotalPrice += product.InsertProductToCart.Quantity * product.InsertProductToCart.ProductPrice;
+                }
+                _context.SaveChanges();
             }
             else
             {
                 var newBill = new Bill()
                 {
-                    BillId = billId,
                     CustomerId = customer.Id,
                     TotalPrice = product.InsertProductToCart.Quantity * product.InsertProductToCart.ProductPrice,
                     PaymentMethod = string.Empty
                 };
                 _context.Bill.Add(newBill);
+                _context.SaveChanges();
+                var BillId = newBill.BillId;
                 var newBillProduct = new BillProduct()
                 {
-                    BillId = billId,
+                    BillId = BillId,
                     ProductId = product.InsertProductToCart.ProductId,
                     ProductName = product.InsertProductToCart.Name,
                     ProductPrice = product.InsertProductToCart.ProductPrice,
@@ -218,7 +220,7 @@ namespace EcommerceStore.Services
                 _context.BillProduct.Add(newBillProduct);
                 _context.SaveChanges();
                 var newBillId = await (from b in _context.Bill
-                                       where b.BillId == billId
+                                       where b.BillId == BillId
                                        select b).FirstOrDefaultAsync();
                 newBillId.TotalPrice = (from bd in _context.BillProduct
                                    where bd.BillId == billId
