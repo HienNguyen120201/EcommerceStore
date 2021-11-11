@@ -2,8 +2,6 @@
 using EcommerceStore.Data.Entities;
 using EcommerceStore.Models;
 using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -23,15 +21,36 @@ namespace EcommerceStore.Services
             _userManager = userManager;
             _context = context;
         }
-        public async Task<bool> LoginAsync(string username, string password)
+        public async Task<int> LoginAsync(string username, string password)
         {
             var customer = await _userManager.FindByNameAsync(username);
             if (customer == null)
             {
-                return false;
+                return 1;
             }
-            var result = await _signInManager.PasswordSignInAsync(username, password, false, false);
-            return result.Succeeded;
+            var adminId = (from u in _context.Customer
+                           where u.UserName == username
+                           select u.Admin).FirstOrDefault();
+            if (adminId==false)
+            {
+                var result = await _signInManager.PasswordSignInAsync(username, password, false, false);
+                if (result.Succeeded)
+                { return 2; }
+                else
+                {
+                    return 1;
+                }
+            }
+            else
+            {
+                var result = await _signInManager.PasswordSignInAsync(username, password, false, false);
+                if (result.Succeeded)
+                { return 3; }
+                else
+                {
+                    return 1;
+                }
+            }    
         }
 
         public async Task<bool> RegisterAsync(RegisterViewModel registerViewModel)
@@ -50,7 +69,9 @@ namespace EcommerceStore.Services
                 UserName = registerViewModel.UserName,
                 PhoneNumber = registerViewModel.PhoneNumber,
                 FullName = registerViewModel.FullName,
-                Gender = registerViewModel.Gender
+                Gender = registerViewModel.Gender,
+                BirthDay=registerViewModel.Birthday,
+                Email=registerViewModel.Email
             };
 
             var result = await _userManager.CreateAsync(newCustomer, registerViewModel.Password);
