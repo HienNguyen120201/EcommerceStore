@@ -17,6 +17,8 @@ namespace EcommerceStore.Data.Configurations
             builder.Property(customer => customer.FullName);
             builder.Property(customer => customer.Gender);
             builder.Property(customer => customer.Point);
+            builder.Property(customer => customer.BirthDay);
+            builder.Property(customer => customer.Admin);
         }
     }
 }
