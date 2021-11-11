@@ -62,5 +62,41 @@ namespace EcommerceStore.Services
             _context.Product.Add(newProduct);
             _context.SaveChanges();
         }
+        public async Task<bool> InsertAccountAdminAysnc(InsertAccountAdminViewModel account)
+        {
+            if (account.Password != account.RePassword) return false;
+            var customer = await _userManager.FindByNameAsync(account.UserName);
+            if (customer != null)
+            {
+                return false;
+            }
+            var newCustomer = new Customer()
+            {
+                Id = System.Guid.NewGuid(),
+                UserName = account.UserName,
+                Admin=true,
+                FullName = account.FullName,
+                Email = account.Email
+            };
+            var result = await _userManager.CreateAsync(newCustomer, account.Password);
+            if (result.Succeeded)
+            {
+                return true;
+            }
+            return false;
+        }
+        public async Task<List<AdminAccountViewModel>> GetAdminAccountAsync()
+        {
+            var account = await (from a in _context.Customer
+                                 select new AdminAccountViewModel
+                                 {
+                                     FullName = a.FullName,
+                                     Gender = a.Gender,
+                                     BirthDay = a.BirthDay,
+                                     Point = a.Point
+                                 }).ToListAsync();
+            return account;
+        }
+
     }
 }

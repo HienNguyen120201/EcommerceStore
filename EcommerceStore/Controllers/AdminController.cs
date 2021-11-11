@@ -20,9 +20,10 @@ namespace EcommerceStore.Controllers
             var revenue = await _adminService.GetRevenuesAsync();
             return View(revenue);
         }
-        public IActionResult Account()
+        public async Task<IActionResult> Account()
         {
-            return View();
+            var product = await _adminService.GetAdminAccountAsync();
+            return View(product);
         }
         public async Task<IActionResult> AdminProduct()
         {
@@ -33,6 +34,15 @@ namespace EcommerceStore.Controllers
         {
             _adminService.InsertProductToDbAsync(product);
             return RedirectToAction("AdminProduct","Admin");
+        }
+        public async Task<IActionResult> InsertAccountAdmin(InsertAccountAdminViewModel account)
+        {
+            var registerSucess = await _adminService.InsertAccountAdminAysnc(account);
+            if (!registerSucess)
+            {
+                return RedirectToAction("Account", "Admin");
+            }
+            return RedirectToAction("Login","Home");
         }
     }
 }

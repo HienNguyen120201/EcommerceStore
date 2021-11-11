@@ -11,5 +11,7 @@ namespace EcommerceStore.Services
         Task<List<RevenueViewModel>> GetRevenuesAsync();
         Task<List<AdminProductViewModel>> GetAdminProductAsync();
         void InsertProductToDbAsync(InsertProductToDBViewModel product);
+        Task<bool> InsertAccountAdminAysnc(InsertAccountAdminViewModel account);
+        Task<List<AdminAccountViewModel>> GetAdminAccountAsync();
     }
 }
