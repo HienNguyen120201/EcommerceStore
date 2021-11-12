@@ -41,6 +41,7 @@ namespace EcommerceStore
             services.AddTransient<UserManager<Customer>, UserManager<Customer>>();
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<IPaymentService, PaymentService>();
+            services.AddTransient<IAdminService, AdminService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

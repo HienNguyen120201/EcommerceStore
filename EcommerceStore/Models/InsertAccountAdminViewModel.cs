@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EcommerceStore.Models
 {
-    public class RegisterViewModel
+    public class InsertAccountAdminViewModel
     {
         [Required()]
         public string UserName { get; set; }
@@ -18,11 +18,5 @@ namespace EcommerceStore.Models
         public string FullName { get; set; }
         [Required()]
         public string Email { get; set; }
-        [Required()]
-        public string PhoneNumber { get; set; }
-        [Required()]
-        public bool Gender { get; set; }
-        [Required()]
-        public DateTime Birthday { get; set; }
     }
 }

@@ -38,12 +38,18 @@ namespace EcommerceStore.Controllers
 
             var loginSucess = await _customerService.LoginAsync(loginViewModel.UserName, loginViewModel.Password);
 
-            if (!loginSucess)
+            if (loginSucess==1)
             {
                 return View(loginViewModel);
             }
-
-            return RedirectToAction("Index");
+            else if(loginSucess==2)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return RedirectToAction("Revenue","Admin");
+            }    
         }
 
         [HttpGet("/Register")]

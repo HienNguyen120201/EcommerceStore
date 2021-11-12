@@ -17,38 +17,42 @@
             </div>
             <!-- /Product main img -->
             <!-- Product details -->
-            <div class="col-md-6">
-                <div class="product-details">
-                    <h2 class="product-name">@Model.Name</h2>
-                    <div>
-                        <div class="product-rating">
-                            @{
-                                for (int i = 0; i < Model.Rating; i++)
-                                {
-                                    <i class="fa fa-star"></i>
+            <form asp-action="InsertProduct" asp-controller="Product" method="post">
+                <div class="col-md-6">
+                    <div class="product-details">
+                        <h2 class="product-name">@Model.Name</h2>
+                        <div>
+                            <div class="product-rating">
+                                @{
+                                    for (int i = 0; i < Model.Rating; i++)
+                                    {
+                                        <i class="fa fa-star"></i>
+                                    }
                                 }
-                            }
+                            </div>
+                            10 Reviews |
+                            <a class="review-link" href="#tab1">Xem chi tiết và đánh giá</a>
                         </div>
-                        10 Reviews |
-                        <a class="review-link" href="#tab1">Xem chi tiết và đánh giá</a>
-                    </div>
-                    <div>
-                        <h3 class="product-price">@Model.Price VND</h3><br>
-                        <span class="product-available">Có sẵn trong kho</span>
-                    </div>
-                    <div class="product-options">
-                        <label>
-                            Số lượng
-                            <input type="number" value=1 class="input-select" />
-                        </label>
-                    </div>
-
-                    <div class="add-to-cart">
-                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                        <div>
+                            <h3 class="product-price price">@Model.Price</h3><br>
+                            <span class="product-available">Có sẵn trong kho</span>
+                        </div>
+                        <div class="product-options">
+                            <label>
+                                Số lượng
+                                <input type="number" value=1 class="input-select" name="product.InsertProductToCart.Quantity" />
+                            </label>
+                        </div>
+                        <input type="hidden" name="product.InsertProductToCart.ProductId" value="@Model.ProductId" />
+                        <input type="hidden" name="product.InsertProductToCart.Name" value="@Model.Name" />
+                        <input type="hidden" name="product.InsertProductToCart.ProductPrice" value="@Model.Price" />
+                        <div class="add-to-cart">
+                            <button type="submit" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- /Product details -->
+                <!-- /Product details -->
+            </form>
             <!-- Product tab -->
             <div class="col-md-12">
                 <div id="product-tab">
