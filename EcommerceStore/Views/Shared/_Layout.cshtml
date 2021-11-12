@@ -10,7 +10,7 @@
     <link type="text/css" rel="stylesheet" href="~/css/slick.css" />
     <link type="text/css" rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
+    @RenderSection("CustomCss", required: false)
 </head>
 <body>
     <header>
@@ -82,6 +82,9 @@
                         <li><a href="@Url.Action("Laptop","Product")">Laptop</a></li>
                         <li><a href="@Url.Action("Smart","Product")">Di động</a></li>
                         <li><a href="@Url.Action("Accessory","Product")">Phụ kiện</a></li>
+                        <li><a href="@Url.Action("payMent","PayMent")">Thanh toán</a></li>
+                        <li><a href="#">Lịch sử thanh toán</a></li>
+
                     </ul>
                     <!-- /NAV -->
                 </div>
