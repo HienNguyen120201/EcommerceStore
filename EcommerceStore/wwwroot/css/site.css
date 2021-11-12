@@ -59,7 +59,6 @@ body {
     font-weight: 400;
     color: #333;
 }
-
 h1, h2, h3, h4, h5, h6 {
     color: #2B2D42;
     font-weight: 700;
@@ -115,11 +114,12 @@ ul, ol {
 /*-- Text input --*/
 
 .input {
-    height: 40px;
+    height: 45px;
     padding: 0px 15px;
-    border: 1px solid #E4E7ED;
+    border: 1px solid #ccc;
     background-color: #FFF;
     width: 100%;
+    margin-bottom: 0px !important;
 }
 
 textarea.input {
@@ -1844,10 +1844,6 @@ textarea.input {
 /*=========================================================
 	09 -> CHECKOUT PAGE
 ===========================================================*/
-
-.billing-details {
-    margin-bottom: 30px;
-}
 
 .shiping-details {
     margin-bottom: 30px;

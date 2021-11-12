@@ -1,0 +1,177 @@
+﻿@model EcommerceStore.Models.BillAndBillDetailViewModel
+<div class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<form asp-controller="PayMent" asp-action="PayMent" method="post">
+			<div class="row">
+				<div class="col-md-7">
+					<!-- Billing Details -->
+					<div class="billing-details">
+						<div class="section-title">
+							<h3 class="title">Thông tin giao hàng</h3>
+						</div>
+						<div class="form-group">
+							<label>Họ và tên</label>
+							<input class="input" type="text" name="bill.Name" required="required" value="@(Model.Name)">
+						</div>
+						</div>
+						<div class="form-group">
+							<label>Số nhà/Tên đường - Thôn</label>
+							<input class="input" type="text" name="bill.Hamlet" required="required" value="@(Model.Hamlet)">
+						</div>
+						<div class="form-group">
+							<label>Xã - Phường - Thị trấn</label>
+							<input class="input" type="text" name="bill.Village" required="required" value="@(Model.Village)">
+						</div>
+						<div class="form-group">
+							<label>Quận - Huyện - Thành phố</label>
+							<input class="input" type="text" name="bill.District" required="required" value="@(Model.District)">
+						</div>
+						<div class="form-group">
+							<label>Tỉnh - Thành phố</label>
+							<input class="input" type="text" name="bill.Province" required="required" value="@(Model.Province)">
+						</div>
+						<div class="form-group">
+							<label>Số điện thoại</label>
+							<input class="input" type="tel" name="bill.Telephone" required="required" value="@(Model.Telephone)">
+						</div>
+					</div>
+				<!-- /Billing Details -->
+				<!-- Order Details -->
+				<div class="col-md-5 order-details">
+					<div class="section-title text-center">
+						<h3 class="title">Giỏ hàng của bạn</h3>
+					</div>
+					<div class="order-summary">
+						<table class="table">
+						<thead>
+							<tr>
+								<th>Sản phẩm</th>
+								<th>Số lượng</th>
+								<th class="text-right">Giá tiền (VND)</th>
+							</tr>
+						</thead>
+						<tbody>
+							@{
+								if(Model==null)
+								{
+									<tr>
+										<td colspan="3" class="text-center">Không có sản phẩm nào để thanh toán</td>
+									</tr>
+								}
+								else
+								{
+										if (Model.ListProduct != null)
+										{
+											if (Model.ListProduct.Count > 0)
+											{
+												foreach (var Data in Model.ListProduct)
+												{
+													<tr>
+														<td>@Data.ProductName</td>
+														<td class="text-center">@Data.Quantity</td>
+														<td class="price1 text-right">@Data.ProductPrice</td>
+													</tr>
+												}
+											}
+											else
+											{
+												<tr>
+													<td colspan="3" class="text-center">Không có sản phẩm nào để thanh toán</td>
+												</tr>
+											} 
+										}
+										else
+										{
+											<tr>
+												<td colspan="3" class="text-center">Không có sản phẩm nào để thanh toán</td>
+											</tr>
+										} 
+									}
+								}
+						</tbody>
+					    </table>
+						<div class="order-col">
+							<div><strong>Tổng giá tiền</strong></div>
+							@{
+								if(Model!=null && Model.Total!=0)
+								{
+									<div><strong class="order-total price1">@Model.Total</strong></div>
+								}
+								else
+								{
+									<div><strong class="order-total"></strong></div>
+								}
+							}
+						</div>
+					</div>
+					@{
+						if(Model!=null && Model.Total!=0)
+						{
+						<div class="payment-method">
+							<div class="input-radio">
+								<input type="radio" name="bill.PaymentMethod" id="payment-1" value="Thanh toán bằng chuyển khoản" required="required">
+								<label for="payment-1">
+									<span></span>
+									Chuyển khoản
+								</label>
+								<div class="caption">
+									<p>Vui lòng chuyển khoản với cú pháp</p>
+								</div>
+							</div>
+							<div class="input-radio">
+								<input type="radio" name="bill.PaymentMethod" id="payment-2" value="Thanh toán bằng ví điện tử" required="required">
+								<label for="payment-2">
+									<span></span>
+									Thanh toán bằng ví điện tử
+								</label>
+								<div class="caption">
+									<p>Quét QR</p>
+								</div>
+							</div>
+							<div class="input-radio">
+								<input type="radio" name="bill.PaymentMethod" id="payment-3" value="Thanh toán khi nhận hàng" required="required">
+								<label for="payment-3">
+									<span></span>
+									Thanh toán khi nhận hàng
+								</label>
+								<div class="caption">
+									<p>Chúng tôi sẽ xác nhận </p>
+								</div>
+							</div>
+						</div>
+						<div class="input-checkbox">
+							<input type="checkbox" id="terms" required="required">
+							<label for="terms">
+								<span></span>
+								Tôi đồng ý với các <a href="#" style="color: blue;">Điều khoản & và điều kiện</a>
+							</label>
+						</div>
+						<button class="primary-btn order-submit">Thanh toán</button>
+						}
+						else
+						{
+							<div class="col-md-50 text-center">
+							<a href="@Url.Action("Index", "Home")" style="font-size: 25px;"><strong>Tiếp tục mua hàng</strong></a>
+							</div>
+						}
+					}
+				</div>
+				<!-- /Order Details -->
+			</div>
+			</form>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+</div>
+@section Scripts{
+<script type="text/javascript">
+	let x = document.querySelectorAll(".price1");
+        for (let i = 0, len = x.length; i < len; i++) {
+            let num = Number(x[i].innerHTML)
+                      .toLocaleString('en');
+            x[i].innerHTML = num;
+        }
+</script>
+}

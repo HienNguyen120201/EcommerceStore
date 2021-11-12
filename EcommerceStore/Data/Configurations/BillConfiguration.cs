@@ -23,6 +23,8 @@ namespace EcommerceStore.Data.Configurations
             builder.Property(bill => bill.CustomerId);
             builder.Property(bill => bill.PaymentMethod);
             builder.Property(bill => bill.TotalPrice);
+            builder.Property(bill => bill.TotalPrice);
+            builder.Property(bill => bill.DateCreatBill);
             builder.HasOne(bill => bill.Customer)
                 .WithMany(customer => customer.Bills)
                 .HasForeignKey(bill => bill.CustomerId);

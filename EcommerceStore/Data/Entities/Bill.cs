@@ -19,7 +19,7 @@ namespace EcommerceStore.Data.Entities
         public string Tinh { get; set; }
         public string PhoneNumber { get; set; }
         public Guid CustomerId { get; set; }
-
+        public DateTime DateCreatBill {  get; set; }
         public Customer Customer { get; set; }
         public List<BillProduct> Products { get; set; }
     }

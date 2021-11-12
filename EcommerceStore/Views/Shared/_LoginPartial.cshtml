@@ -6,7 +6,7 @@
 <ul class="header-links pull-right">
     @if (SignInManager.IsSignedIn(User))
     {
-        <li style="color:white;">Hi @UserManager.GetUserAsync(User).Result.FullName　|</li>
+        <li style="color:white;">Xin Chào @UserManager.GetUserAsync(User).Result.FullName　|</li>
         <li><a href="@Url.Action("Logout","Home")"><i class="fas fa-sign-out-alt"></i>Đăng xuất</a></li>
     }
     else
