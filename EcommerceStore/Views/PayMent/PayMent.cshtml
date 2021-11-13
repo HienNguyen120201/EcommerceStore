@@ -1,11 +1,16 @@
 ﻿@model EcommerceStore.Models.BillAndBillDetailViewModel
+<style>
+        .enMoney:after {
+            content: ' ₫';
+        }
+</style>
 <div class="section">
 		<!-- container -->
 		<div class="container">
 			<!-- row -->
 			<form asp-controller="PayMent" asp-action="PayMent" method="post">
 			<div class="row">
-				<div class="col-md-7">
+				<div class="col-md-5">
 					<!-- Billing Details -->
 					<div class="billing-details">
 						<div class="section-title">
@@ -14,7 +19,6 @@
 						<div class="form-group">
 							<label>Họ và tên</label>
 							<input class="input" type="text" name="bill.Name" required="required" value="@(Model.Name)">
-						</div>
 						</div>
 						<div class="form-group">
 							<label>Số nhà/Tên đường - Thôn</label>
@@ -37,9 +41,10 @@
 							<input class="input" type="tel" name="bill.Telephone" required="required" value="@(Model.Telephone)">
 						</div>
 					</div>
+					</div>
 				<!-- /Billing Details -->
 				<!-- Order Details -->
-				<div class="col-md-5 order-details">
+				<div class="col-md-7 order-details">
 					<div class="section-title text-center">
 						<h3 class="title">Giỏ hàng của bạn</h3>
 					</div>
@@ -47,9 +52,12 @@
 						<table class="table">
 						<thead>
 							<tr>
+								<th></th>
 								<th>Sản phẩm</th>
-								<th>Số lượng</th>
-								<th class="text-right">Giá tiền (VND)</th>
+								<th class="text-right">Giá tiền</th>
+								<th class="text-center">Số lượng</th>
+								<th class="text-right">Tổng Giá tiền</th>
+								<th></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -57,7 +65,7 @@
 								if(Model==null)
 								{
 									<tr>
-										<td colspan="3" class="text-center">Không có sản phẩm nào để thanh toán</td>
+										<td colspan="6" class="text-center">Không có sản phẩm nào để thanh toán</td>
 									</tr>
 								}
 								else
@@ -69,23 +77,48 @@
 												foreach (var Data in Model.ListProduct)
 												{
 													<tr>
-														<td>@Data.ProductName</td>
-														<td class="text-center">@Data.Quantity</td>
-														<td class="price1 text-right">@Data.ProductPrice</td>
+														<td>
+														<a href="#">
+															<img src="@(Data.Url)" title="" width="60" height="60">
+														</a>
+														</td>
+														<td>
+														<a href="#">
+															@Data.ProductName
+														</a>
+														</td>
+														<td class="price1 text-right"style="width: 110px">@(Data.ProductPrice)</td>
+														<td class="text-center"style="width: 130px">
+														<span>
+															<span><input type="hidden" value="@Data.Quantity" name="bill.Product.Quantity" /></span>
+															<span><input type="hidden" value="@Data.ProductId" name="bill.Product.ProductId" /></span>
+															<span><input type="hidden" value="@Data.ProductPrice" name="bill.Product.ProductPrice" /></span>
+															<span><input style="width:25px;height:35px" type="submit" value="-" name="bill.Type" /></span>
+															<span><input style="height:35px" type="text" value="@Data.Quantity" name="bill.Product.Quantity" size="2" style="text-align:center" class="text-center" /></span>
+															<span><input style="width:25px;height:35px" type="submit" value="+" name="bill.Type" /></span>
+														</span>
+														</td>
+														<td class="price1 text-right"style="width: 120px">@(Data.TotalProductPrice)</td>
+														<td class="text-center">
+																<span><input type="hidden" value="delete" name="bill.Type" /></span>
+																<button class="remove_cart" rel="1" >
+																	<i class="fas fa-trash"></i>
+																</button>
+														</td>
 													</tr>
 												}
 											}
 											else
 											{
 												<tr>
-													<td colspan="3" class="text-center">Không có sản phẩm nào để thanh toán</td>
+													<td colspan="6" class="text-center">Không có sản phẩm nào để thanh toán</td>
 												</tr>
 											} 
 										}
 										else
 										{
 											<tr>
-												<td colspan="3" class="text-center">Không có sản phẩm nào để thanh toán</td>
+												<td colspan="6" class="text-center">Không có sản phẩm nào để thanh toán</td>
 											</tr>
 										} 
 									}
@@ -93,21 +126,12 @@
 						</tbody>
 					    </table>
 						<div class="order-col">
-							<div><strong>Tổng giá tiền</strong></div>
-							@{
-								if(Model!=null && Model.Total!=0)
-								{
+							<div style="font-size:20px"><strong>Tổng giá tiền</strong></div>
 									<div><strong class="order-total price1">@Model.Total</strong></div>
-								}
-								else
-								{
-									<div><strong class="order-total"></strong></div>
-								}
-							}
 						</div>
 					</div>
 					@{
-						if(Model!=null && Model.Total!=0)
+						if(Model!=null && Model.Total!=0 &&Model.ListProduct.Count!=0)
 						{
 						<div class="payment-method">
 							<div class="input-radio">
@@ -131,7 +155,7 @@
 								</div>
 							</div>
 							<div class="input-radio">
-								<input type="radio" name="bill.PaymentMethod" id="payment-3" value="Thanh toán khi nhận hàng" required="required">
+								<input type="radio" name="bill.PaymentMethod" id="payment-3" checked value="Thanh toán khi nhận hàng" required="required">
 								<label for="payment-3">
 									<span></span>
 									Thanh toán khi nhận hàng
@@ -142,7 +166,7 @@
 							</div>
 						</div>
 						<div class="input-checkbox">
-							<input type="checkbox" id="terms" required="required">
+							<input type="checkbox" id="terms" required="required" checked>
 							<label for="terms">
 								<span></span>
 								Tôi đồng ý với các <a href="#" style="color: blue;">Điều khoản & và điều kiện</a>
@@ -167,11 +191,13 @@
 </div>
 @section Scripts{
 <script type="text/javascript">
-	let x = document.querySelectorAll(".price1");
-        for (let i = 0, len = x.length; i < len; i++) {
-            let num = Number(x[i].innerHTML)
-                      .toLocaleString('en');
-            x[i].innerHTML = num;
-        }
+	$('.price1').each(function () {
+    var item = $(this).text();
+    var num = Number(item).toLocaleString('en');    
+
+    $(this).addClass('enMoney');
+    
+    $(this).text(num);
+	});
 </script>
 }
