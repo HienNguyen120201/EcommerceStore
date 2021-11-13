@@ -9,5 +9,8 @@ namespace EcommerceStore.Services
         Task<BillAndBillDetailViewModel> GetBillDetalsAsync(ClaimsPrincipal user);
         Task<bool> UpdateBillAsync(BillAndBillDetailViewModel bill,ClaimsPrincipal user);
         Task<bool> GetInforBillAsync(ClaimsPrincipal user, BillAndBillDetailViewModel infor);
+        Task<bool> UpdateQuantityAsync(ClaimsPrincipal user, BillAndBillDetailViewModel bill);
+        Task<bool> GetBillUpdateAsync(ClaimsPrincipal user, BillAndBillDetailViewModel infor);
+        Task<bool> DeleteProductAsync(ClaimsPrincipal user, BillAndBillDetailViewModel infor);
     }
 }

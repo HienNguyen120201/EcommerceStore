@@ -58,7 +58,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     color: #333;
-}
+}   
 h1, h2, h3, h4, h5, h6 {
     color: #2B2D42;
     font-weight: 700;
@@ -126,7 +126,6 @@ textarea.input {
     padding: 15px;
     min-height: 90px;
 }
-
 /*-- Number input --*/
 
 .input-number {
@@ -438,6 +437,7 @@ textarea.input {
         margin-right: 5px;
     }
 
+
 /*----------------------------*\
 	Logo
 \*----------------------------*/
@@ -610,7 +610,6 @@ textarea.input {
     padding-top: 15px;
     padding-bottom: 15px;
 }
-
 /*=========================================================
 	03 -> Navigation
 ===========================================================*/
@@ -1890,11 +1889,10 @@ textarea.input {
         }
 
             .order-summary .order-col > div:first-child {
-                width: calc(100% - 150px);
+                width: 150px !important;
             }
 
             .order-summary .order-col > div:last-child {
-                width: 150px;
                 text-align: right;
             }
 
@@ -2199,7 +2197,5 @@ input:focus {
     .links a {
         margin-left: 4px;
     }
-
-
 /******************************************************************/
 /*************************** LOGIN PAGE ***************************/

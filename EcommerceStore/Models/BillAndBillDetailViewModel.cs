@@ -5,6 +5,7 @@ namespace EcommerceStore.Models
     public class BillAndBillDetailViewModel
     {
         public List<BillDetailViewModel> ListProduct {  get; set; }
+        public BillDetailViewModel Product { get; set; }
         public int Total {  get; set; }
         public string PaymentMethod {  get; set;}
         public string Name { get; set; }
@@ -13,6 +14,6 @@ namespace EcommerceStore.Models
         public string District { get; set; }
         public string Province { get; set; }
         public string Telephone { get; set; }
-
+        public string Type { get; set; }
     }
 }
