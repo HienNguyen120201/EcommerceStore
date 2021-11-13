@@ -11,16 +11,15 @@ namespace EcommerceStore.Controllers
     {
         private readonly ICustomerService _customerService;
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger, ICustomerService customerService)
+        public HomeController(ILogger<HomeController> logger, ICustomerService customerService, IProductService iProductService)
         {
             _logger = logger;
-            _customerService = customerService;
+            _customerService = customerService;        
         }
-
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var products = await _customerService.GetAllProductAsync();
+            return View(products);
         }
         [HttpGet("/Login")]
         public IActionResult Login()
