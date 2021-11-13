@@ -17,7 +17,7 @@
             </div>
             <!-- /Product main img -->
             <!-- Product details -->
-            <form asp-action="InsertProduct" asp-controller="Product" method="post">
+            <form asp-action="InsertProduct" asp-controller="Product" method="post" onsubmit="notify()">
                 <div class="col-md-6">
                     <div class="product-details">
                         <h2 class="product-name">@Model.Name</h2>
@@ -73,7 +73,7 @@
                                         {
                                             <h3>@des.MainDesc</h3>
                                             <p>@des.Desc</p>
-                                            <p><img class="alignnone size-full wp-image-141456" src="@des.ImgUrl" alt="" width="1020" height="570"/></p>
+                                            <p><img class="alignnone size-full wp-image-141456" src="@des.ImgUrl" alt="" width="1020" height="570" /></p>
                                         }
 
                                     </article>
@@ -107,13 +107,13 @@
                                                 </div>
                                                 @{int count5 = 0; }
 
-                                                    @foreach (var eval in Model.Evalutions)
+                                                @foreach (var eval in Model.Evalutions)
+                                                {
+                                                    if (eval.Rating == 5)
                                                     {
-                                                        if (eval.Rating == 5)
-                                                        {
-                                                            count5++;
-                                                        }
+                                                        count5++;
                                                     }
+                                                }
                                                 <div class="rating-progress">
                                                     <div style="width: @(count5 * 20)%;"></div>
                                                 </div>
@@ -246,7 +246,7 @@
                                                     <input id="star1" name="product.InsertEvaluation.Rating" value="1" type="radio"><label for="star1"></label>
                                                 </div>
                                             </div>
-                                            <input type="hidden" name="product.InsertEvaluation.ProductId" value="@Model.ProductId"/>
+                                            <input type="hidden" name="product.InsertEvaluation.ProductId" value="@Model.ProductId" />
                                             <button type="submit" class="primary-btn">Đánh giá</button>
                                         </form>
                                     </div>
