@@ -34,13 +34,13 @@ namespace EcommerceStore.Services
                                      from c in _context.Product
                                      where customer.Id == a.CustomerId && a.PaymentMethod == string.Empty && a.BillId == b.BillId && b.ProductId==c.ProductId
                                      orderby b.ProductPrice
-                                      select new BillDetailViewModel
+                                     select new BillDetailViewModel
                                      {
                                         ProductName=b.ProductName,
                                         ProductPrice=b.ProductPrice,
                                         Quantity=b.Quantity,
                                         Url=c.ImgUrl,
-                                        ProductId=c.ProductId,
+                                        ProductId=b.ProductId,
                                         TotalProductPrice=b.TotalProductPrice
                                       }).ToListAsync();
             return bill;
@@ -59,12 +59,12 @@ namespace EcommerceStore.Services
 
             if (infor.Type == "-")
             {
-                product.Quantity=infor.Product.Quantity-1;
+                product.Quantity--;
                 if (product.Quantity <= 0)
                 {
                     bill1.TotalPrice -= product.ProductPrice;
                     _context.Remove(product);
-                    if (bill1.TotalPrice == 0) _context.Remove(bill1);
+                    if (bill1.TotalPrice <= 0) _context.Remove(bill1);
                 }
                 else
                 {
@@ -74,7 +74,7 @@ namespace EcommerceStore.Services
             }
             else if (infor.Type == "+")
             {
-                product.Quantity= infor.Product.Quantity + 1;
+                product.Quantity++;
                 bill1.TotalPrice += product.ProductPrice;
                 product.TotalProductPrice += product.ProductPrice;
             }
@@ -109,13 +109,14 @@ namespace EcommerceStore.Services
                                       from b in _context.BillProduct
                                       from c in _context.Product
                                       where customer.Id == a.CustomerId && a.PaymentMethod == string.Empty && a.BillId == b.BillId && b.ProductId == c.ProductId
-                                      select new BillDetailViewModel
+                                       orderby b.ProductPrice
+                                       select new BillDetailViewModel
                                       {
                                           ProductName = b.ProductName,
                                           ProductPrice = b.ProductPrice,
                                           Quantity = b.Quantity,
                                           Url = c.ImgUrl,
-                                          ProductId = c.ProductId,
+                                          ProductId = b.ProductId,
                                           TotalProductPrice = b.TotalProductPrice
                                       }).ToListAsync();
             return true;
@@ -125,7 +126,7 @@ namespace EcommerceStore.Services
             var customer = await _userManager.GetUserAsync(user);
             var bill = await (from b in _context.Bill
                               where b.CustomerId == customer.Id && b.PaymentMethod != string.Empty
-                              orderby b.DateCreatBill
+                              orderby b.DateCreatBill descending
                               select new BillAndBillDetailViewModel
                               {
                                   Name = b.UserName,

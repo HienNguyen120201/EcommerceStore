@@ -8,7 +8,7 @@
 		<!-- container -->
 		<div class="container">
 			<!-- row -->
-			<form asp-controller="PayMent" asp-action="PayMent" method="post">
+			
 			<div class="row">
 				<div class="col-md-5">
 					<!-- Billing Details -->
@@ -18,27 +18,27 @@
 						</div>
 						<div class="form-group">
 							<label>Họ và tên</label>
-							<input class="input" type="text" name="bill.Name" required="required" value="@(Model.Name)">
+							<input class="input" type="text" name="bill.Name" required="required" value="@(Model.Name)" form="payment">
 						</div>
 						<div class="form-group">
 							<label>Số nhà/Tên đường - Thôn</label>
-							<input class="input" type="text" name="bill.Hamlet" required="required" value="@(Model.Hamlet)">
+							<input class="input" type="text" name="bill.Hamlet" required="required" value="@(Model.Hamlet)" form="payment">
 						</div>
 						<div class="form-group">
 							<label>Xã - Phường - Thị trấn</label>
-							<input class="input" type="text" name="bill.Village" required="required" value="@(Model.Village)">
+							<input class="input" type="text" name="bill.Village" required="required" value="@(Model.Village)" form="payment">
 						</div>
 						<div class="form-group">
 							<label>Quận - Huyện - Thành phố</label>
-							<input class="input" type="text" name="bill.District" required="required" value="@(Model.District)">
+							<input class="input" type="text" name="bill.District" required="required" value="@(Model.District)" form="payment">
 						</div>
 						<div class="form-group">
 							<label>Tỉnh - Thành phố</label>
-							<input class="input" type="text" name="bill.Province" required="required" value="@(Model.Province)">
+							<input class="input" type="text" name="bill.Province" required="required" value="@(Model.Province)" form="payment">
 						</div>
 						<div class="form-group">
 							<label>Số điện thoại</label>
-							<input class="input" type="tel" name="bill.Telephone" required="required" value="@(Model.Telephone)">
+							<input class="input" type="tel" name="bill.Telephone" required="required" value="@(Model.Telephone)" form="payment">
 						</div>
 					</div>
 					</div>
@@ -89,21 +89,21 @@
 														</td>
 														<td class="price1 text-right"style="width: 110px">@(Data.ProductPrice)</td>
 														<td class="text-center"style="width: 130px">
-														<span>
-															<span><input type="hidden" value="@Data.Quantity" name="bill.Product.Quantity" /></span>
+														<form asp-controller="PayMent" asp-action="PayMent" method="post" id="payment">
 															<span><input type="hidden" value="@Data.ProductId" name="bill.Product.ProductId" /></span>
-															<span><input type="hidden" value="@Data.ProductPrice" name="bill.Product.ProductPrice" /></span>
 															<span><input style="width:25px;height:35px" type="submit" value="-" name="bill.Type" /></span>
 															<span><input style="height:35px" type="text" value="@Data.Quantity" name="bill.Product.Quantity" size="2" style="text-align:center" class="text-center" /></span>
 															<span><input style="width:25px;height:35px" type="submit" value="+" name="bill.Type" /></span>
-														</span>
+														</form>
 														</td>
 														<td class="price1 text-right"style="width: 120px">@(Data.TotalProductPrice)</td>
 														<td class="text-center">
-																<span><input type="hidden" value="delete" name="bill.Type" /></span>
-																<button class="remove_cart" rel="1" >
+														<form asp-controller="PayMent" asp-action="PayMent" method="post" id="payment">
+															<span><input type="hidden" value="@Data.ProductId" name="bill.Product.ProductId" /></span>
+																<button class="remove_cart" rel="1" value="d" name="bill.Type">
 																	<i class="fas fa-trash"></i>
 																</button>
+														</form>
 														</td>
 													</tr>
 												}
@@ -135,7 +135,7 @@
 						{
 						<div class="payment-method">
 							<div class="input-radio">
-								<input type="radio" name="bill.PaymentMethod" id="payment-1" value="Thanh toán bằng chuyển khoản" required="required">
+								<input type="radio" name="bill.PaymentMethod" id="payment-1" value="Thanh toán bằng chuyển khoản" required="required" form="payment">
 								<label for="payment-1">
 									<span></span>
 									Chuyển khoản
@@ -145,7 +145,7 @@
 								</div>
 							</div>
 							<div class="input-radio">
-								<input type="radio" name="bill.PaymentMethod" id="payment-2" value="Thanh toán bằng ví điện tử" required="required">
+								<input type="radio" name="bill.PaymentMethod" id="payment-2" value="Thanh toán bằng ví điện tử" required="required" form="payment">
 								<label for="payment-2">
 									<span></span>
 									Thanh toán bằng ví điện tử
@@ -155,7 +155,7 @@
 								</div>
 							</div>
 							<div class="input-radio">
-								<input type="radio" name="bill.PaymentMethod" id="payment-3" checked value="Thanh toán khi nhận hàng" required="required">
+								<input type="radio" name="bill.PaymentMethod" id="payment-3" checked value="Thanh toán khi nhận hàng" required="required" form="payment">
 								<label for="payment-3">
 									<span></span>
 									Thanh toán khi nhận hàng
@@ -172,7 +172,7 @@
 								Tôi đồng ý với các <a href="#" style="color: blue;">Điều khoản & và điều kiện</a>
 							</label>
 						</div>
-						<button class="primary-btn order-submit">Thanh toán</button>
+						<button class="primary-btn order-submit" value="p" name="bill.Type" form="payment">Thanh toán</button>
 						}
 						else
 						{
@@ -184,7 +184,6 @@
 				</div>
 				<!-- /Order Details -->
 			</div>
-			</form>
 			<!-- /row -->
 		</div>
 		<!-- /container -->
@@ -199,6 +198,5 @@
     
     $(this).text(num);
 	});
-
 </script>
 }
