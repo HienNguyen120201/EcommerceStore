@@ -47,5 +47,19 @@ namespace EcommerceStore.Controllers
             await _paymentService.UpdateBillAsync(bill, User);
             return View(bill);
         }
+        public async Task<IActionResult> PaymentHistory()
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Login", "Home");
+            }
+            var pmHistory = await _paymentService.GetPaymentHistoryAsync(User);
+            return View(pmHistory);
+        }
+        public async Task<IActionResult> PaymentDetailHistory(int id)
+        {
+            var paymentDetail = await _paymentService.GetPaymentDetailAsync(id);
+            return View(paymentDetail);
+        }
     }
 }

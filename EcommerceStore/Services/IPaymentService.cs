@@ -1,4 +1,5 @@
 ﻿using EcommerceStore.Models;
+using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -12,5 +13,7 @@ namespace EcommerceStore.Services
         Task<bool> UpdateQuantityAsync(ClaimsPrincipal user, BillAndBillDetailViewModel bill);
         Task<bool> GetBillUpdateAsync(ClaimsPrincipal user, BillAndBillDetailViewModel infor);
         Task<bool> DeleteProductAsync(ClaimsPrincipal user, BillAndBillDetailViewModel infor);
+        Task<List<PaymentHistoryViewModel>> GetPaymentHistoryAsync(ClaimsPrincipal user);
+        Task<List<PaymentDetailViewModel>> GetPaymentDetailAsync(int billId);
     }
 }
