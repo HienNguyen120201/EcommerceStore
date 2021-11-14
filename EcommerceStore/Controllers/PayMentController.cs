@@ -1,7 +1,6 @@
 ﻿using EcommerceStore.Models;
 using EcommerceStore.Services;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace EcommerceStore.Controllers
@@ -39,12 +38,12 @@ namespace EcommerceStore.Controllers
                 await _paymentService.GetBillUpdateAsync(User, bill);
                 return View(bill);
             }
-            if(bill.Type=="delete")
+            if(bill.Type=="d")
             {
                 await _paymentService.DeleteProductAsync(User, bill);
                 await _paymentService.GetBillUpdateAsync(User, bill);
                 return View(bill);
-            }    
+            }
             await _paymentService.UpdateBillAsync(bill, User);
             return View(bill);
         }

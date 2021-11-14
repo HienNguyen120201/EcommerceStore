@@ -77,7 +77,6 @@ a {
         text-decoration: none;
         outline: none;
     }
-
 ul, ol {
     margin: 0;
     padding: 0;
@@ -509,6 +508,27 @@ textarea.input {
             text-align: center;
             color: #FFF;
         }
+            .header-ctn > div > a :hover {
+                display: block;
+                position: relative;
+                width: 90px;
+                text-align: center;
+                color: #ef0606;
+            }
+            .header-ctn > div > a>i :hover {
+                display: block;
+                position: relative;
+                width: 90px;
+                text-align: center;
+                color: #ef0606;
+            }
+            .header-ctn > div > a >i >span :hover {
+                display: block;
+                position: relative;
+                width: 90px;
+                text-align: center;
+                color: #ef0606;
+            }
 
             .header-ctn > div > a > i {
                 display: block;
@@ -2199,3 +2219,4 @@ input:focus {
     }
 /******************************************************************/
 /*************************** LOGIN PAGE ***************************/
+
