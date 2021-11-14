@@ -44,7 +44,7 @@
                                         Tổng doanh thu
                                     </div>
                                     <div class="counter-info">
-                                        <div class="counter-count">
+                                        <div class="counter-count price">
                                             @{ 
                                                 int count = 0;
                                                 foreach(var count_ in Model)
@@ -52,7 +52,7 @@
                                                     count += count_.TotalPrice;
                                                 }
                                             }
-                                            @count VND
+                                            @count
                                         </div>
                                         <i class="fas fa-donate"></i>
                                     </div>
@@ -89,7 +89,7 @@
                                                     </td>
                                                     <td>@revenue.PaymentMethod</td>
                                                     <td>@revenue.PhoneNumber</td>
-                                                    <td>@revenue.TotalPrice</td>
+                                                    <td class="price">@revenue.TotalPrice</td>
                                                 </tr>
                                             }
 

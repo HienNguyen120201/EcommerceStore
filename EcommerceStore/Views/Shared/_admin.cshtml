@@ -16,6 +16,12 @@
     <link type="text/css" rel="stylesheet" href="~/css/app.css" />
     <link type="text/css" rel="stylesheet" href="~/css/grid.css" />
     <link type="text/css" rel="stylesheet" href="~/css/theme.css" />
+    <style>
+        .currSign:after {
+            color: black;
+            content: ' VND';
+        }
+    </style>
 </head>
 <body>
     <!-- SIDEBAR -->
@@ -62,5 +68,14 @@
     <!-- END SIDEBAR -->
     @RenderBody()
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        let x = document.querySelectorAll(".price");
+        for (let i = 0, len = x.length; i < len; i++) {
+            let num = Number(x[i].innerHTML)
+                .toLocaleString('en');
+            x[i].innerHTML = num;
+            x[i].classList.add("currSign");
+        }
+    </script>
 </body>
 </html>

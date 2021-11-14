@@ -72,19 +72,26 @@
                                                 <th>Hãng sản xuất</th>
                                                 <th>Giá sản phẩm</th>
                                                 <th>Đánh giá</th>
+                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @foreach (var product in Model)
                                             {
-                                                <tr>
-                                                    <td>@product.ProductId</td>
-                                                    <td>@product.Name </td>
-                                                    <td>@product.Status</td>
-                                                    <td>@product.Producer</td>
-                                                    <td>@product.Price</td>
-                                                    <td>@product.Rating</td>
-                                                </tr>
+                                            <tr>
+                                                <td>@product.ProductId</td>
+                                                <td>@product.Name </td>
+                                                <td>@product.Status</td>
+                                                <td>@product.Producer</td>
+                                                <td class="price">@product.Price</td>
+                                                <td>@product.Rating</td>
+                                                <td class="text-center">
+                                                    <span><input type="hidden" value="delete" name="bill.Type" /></span>
+                                                    <button class="primary-btn" rel="1">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
                                              }
                                             </tbody>
                                         </table>
