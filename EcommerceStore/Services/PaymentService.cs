@@ -56,7 +56,6 @@ namespace EcommerceStore.Services
                                where b.CustomerId == customer.Id && b.PaymentMethod == string.Empty
                                select b).FirstOrDefaultAsync();
             if (product == null || bill1 == null) return true;
-
             if (infor.Type == "-")
             {
                 product.Quantity--;
@@ -78,9 +77,20 @@ namespace EcommerceStore.Services
                 bill1.TotalPrice += product.ProductPrice;
                 product.TotalProductPrice += product.ProductPrice;
             }
+            else if(infor.Type == "q" && infor.Product.Quantity!= product.Quantity && infor.Product.Quantity>=0)
+            {
+                int a = infor.Product.Quantity - product.Quantity;
+                product.Quantity = infor.Product.Quantity;
+                bill1.TotalPrice +=(a*product.ProductPrice);
+                product.TotalProductPrice += (a*product.ProductPrice);
+                if (infor.Product.Quantity == 0)
+                {
+                    _context.Remove(product);
+                    if (bill1.TotalPrice <= 0) _context.Remove(bill1);
+                }
+            }
             _context.SaveChanges();
             return true;
-
         }
         public async Task<bool> DeleteProductAsync(ClaimsPrincipal user, BillAndBillDetailViewModel infor)
         {

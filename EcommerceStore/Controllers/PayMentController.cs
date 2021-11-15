@@ -18,9 +18,10 @@ namespace EcommerceStore.Controllers
             if (!User.Identity.IsAuthenticated)
                 return RedirectToAction("Login", "Home");
             BillAndBillDetailViewModel model = await _paymentService.GetBillDetalsAsync(User);
-            if (model == null)
-                model = new BillAndBillDetailViewModel();
-            await _paymentService.GetInforBillAsync(User, model);
+            if (model != null)
+                await _paymentService.GetInforBillAsync(User, model);
+            else
+            model = new BillAndBillDetailViewModel();
             return View(model);
         }
         [HttpPost("/payment")]
@@ -28,23 +29,47 @@ namespace EcommerceStore.Controllers
         {
             if(bill.Type=="-")
             {
+                bill.Product.Quantity--;
+                if(bill.Product.Quantity <= 0)
+                {
+                    await _paymentService.DeleteProductAsync(User, bill);
+                    await _paymentService.GetBillUpdateAsync(User, bill);
+                    if (bill.ListProduct == null || bill.ListProduct.Count == 0)
+                        bill = new BillAndBillDetailViewModel();
+                    return View(bill);
+                }    
                 await _paymentService.UpdateQuantityAsync(User, bill);
                 await _paymentService.GetBillUpdateAsync(User, bill);
+                if (bill.ListProduct == null || bill.ListProduct.Count == 0)
+                    bill = new BillAndBillDetailViewModel();
                 return View(bill);
             }
             if (bill.Type == "+")
             {
                 await _paymentService.UpdateQuantityAsync(User, bill);
                 await _paymentService.GetBillUpdateAsync(User, bill);
+                if (bill.ListProduct == null || bill.ListProduct.Count == 0)
+                    bill = new BillAndBillDetailViewModel();
                 return View(bill);
             }
             if(bill.Type=="d")
             {
                 await _paymentService.DeleteProductAsync(User, bill);
                 await _paymentService.GetBillUpdateAsync(User, bill);
+                if (bill.ListProduct == null || bill.ListProduct.Count == 0)
+                    bill = new BillAndBillDetailViewModel();
                 return View(bill);
             }
+            if(bill.Type=="q")
+            {
+                await _paymentService.UpdateQuantityAsync(User, bill);
+                await _paymentService.GetBillUpdateAsync(User, bill);
+                if (bill.ListProduct == null || bill.ListProduct.Count == 0)
+                    bill = new BillAndBillDetailViewModel();
+                return View(bill);
+            }    
             await _paymentService.UpdateBillAsync(bill, User);
+            bill = new BillAndBillDetailViewModel();
             return View(bill);
         }
     }
