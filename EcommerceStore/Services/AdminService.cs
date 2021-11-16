@@ -97,6 +97,13 @@ namespace EcommerceStore.Services
                                  }).ToListAsync();
             return account;
         }
-
+        public void DeleteProduct(int productId)
+        {
+            var product = (from p in _context.Product
+                           where p.ProductId == productId
+                           select p).FirstOrDefault();
+            _context.Remove(product);
+            _context.SaveChanges();
+        }
     }
 }

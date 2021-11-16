@@ -81,7 +81,7 @@
                     @foreach (var laptop in Model)
                     {
                         <!-- product -->
-                        <form asp-action="InsertProduct" asp-controller="Product" method="post" onsubmit="notify()">
+                        <form asp-action="InsertProduct" asp-controller="Product" method="post" onsubmit="return confirm('Bạn muốn thêm vào giỏ hàng?!!!')">
                             <input type="hidden" name="product.InsertProductToCart.ProductId" value="@laptop.ProductId" />
                             <input type="hidden" name="product.InsertProductToCart.Quantity" value="1" />
                             <input type="hidden" name="product.InsertProductToCart.Name" value="@laptop.Name" />
