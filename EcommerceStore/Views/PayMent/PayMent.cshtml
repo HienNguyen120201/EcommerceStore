@@ -196,6 +196,8 @@
 		<!-- /container -->
 </div>
 @section Scripts{
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
+	<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
 <script type="text/javascript">
 	$('.price1').each(function () {
     var item = $(this).text();
@@ -287,35 +289,77 @@ function kiemtra(){
 	var d6 = document.getElementById("input66").value;
 
     if (d1=="") { //quy tắc 1
-        alert("Vui lòng nhập Họ và tên.");
+		  Swal.fire({
+		  icon: 'error',
+	      title: 'Oops...',
+		  text: 'Vui lòng nhập Họ và Tên!',
+		  showConfirmButton: false,
+		  timer: 1300
+		})
         return false;
     }
     if (d2=="") { //quy tắc 1
-        alert("Vui lòng nhập Số nhà/Tên đường - Thôn.");
+        Swal.fire({
+		  icon: 'error',
+	      title: 'Oops...',
+		  text: 'Vui lòng nhập Số nhà/Tên đường - Thôn!',
+		  showConfirmButton: false,
+		  timer: 1300
+		})
         return false;
     } 
 	if (d3=="") { //quy tắc 1
-        alert("Vui lòng nhập Xã - Phường - Thị trấn.");
+		Swal.fire({
+		  icon: 'error',
+	      title: 'Oops...',
+		  text: 'Vui lòng nhập Xã - Phường - Thị trấn!',
+		  showConfirmButton: false,
+		  timer: 1300
+		})
         return false;
     }
 	if (d4=="") { //quy tắc 1
-        alert("Vui lòng nhập Quận - Huyện - Thành phố.");
+		Swal.fire({
+		  icon: 'error',
+	      title: 'Oops...',
+		  text: 'Vui lòng nhập Quận - Huyện - Thành phố!',
+		  showConfirmButton: false,
+		  timer: 1300
+		})
         return false;
     }
 	if (d5=="") { //quy tắc 1
-        alert("Vui lòng nhập Tỉnh - Thành phố.");
+		Swal.fire({
+		  icon: 'error',
+	      title: 'Oops...',
+		  text: 'Vui lòng nhập Tỉnh - Thành phố!',
+		  showConfirmButton: false,
+		  timer: 1300
+		})
         return false;
     }
 	if (d6=="") { //quy tắc 1
-        alert("Vui lòng nhập Số điện thoại.");
+		Swal.fire({
+		  icon: 'error',
+	      title: 'Oops...',
+		  text: 'Vui lòng nhập Số điện thoại!',
+		  showConfirmButton: false,
+		  timer: 1300
+		})
         return false;
     }	
 	var gender_check = $('input:radio[class=dinh]:checked').val();
 	if ( !gender_check ) {
-    alert("Vui lòng chọn phương thức thanh toán.");
-    return false;
-}
+		Swal.fire({
+		  icon: 'error',
+	      title: 'Oops...',
+		  text: 'Vui lòng chọn phương thức thanh toán!',
+		  showConfirmButton: false,
+		  timer: 1300
+		})
+		return false;
+	}
     return true;
-  }
+}
 </script>
 }
