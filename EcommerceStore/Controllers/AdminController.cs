@@ -44,5 +44,10 @@ namespace EcommerceStore.Controllers
             }
             return RedirectToAction("Login","Home");
         }
+        public IActionResult DeleteProduct(int product)
+        {
+            _adminService.DeleteProduct(product);
+            return RedirectToAction("AdminProduct");
+        }
     }
 }

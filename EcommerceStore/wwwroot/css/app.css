@@ -396,7 +396,9 @@ input {
 
 table {
     width: 100%;
-    min-width: 1000px;
+}
+.adminproduct{
+    min-width:1000px;
 }
 
 .order-owner {

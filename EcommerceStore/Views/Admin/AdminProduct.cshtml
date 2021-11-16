@@ -63,10 +63,10 @@
                                     Danh sách sản phẩm hiện có
                                 </div>
                                 <div class="box-body overflow-scroll">
-                                    <table>
+                                    <table class="adminproduct">
                                         <thead>
                                             <tr>
-                                                <th>ID sản phẩm</th>
+                                                <th>ID</th>
                                                 <th>Tên sản phẩm</th>
                                                 <th>Loại sản phẩm</th>
                                                 <th>Hãng sản xuất</th>
@@ -85,12 +85,14 @@
                                                 <td>@product.Producer</td>
                                                 <td class="price">@product.Price</td>
                                                 <td>@product.Rating</td>
-                                                <td class="text-center">
-                                                    <span><input type="hidden" value="delete" name="bill.Type" /></span>
-                                                    <button class="primary-btn" rel="1">
-                                                        <i class="fas fa-trash"></i>
-                                                    </button>
-                                                </td>
+                                                <form asp-controller="Admin" asp-action="DeleteProduct">
+                                                    <td class="text-center">
+                                                        <input name="product" type="hidden" value="@product.ProductId" />
+                                                        <button type="submit" class="primary-btn">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </td>
+                                                </form>
                                             </tr>
                                              }
                                             </tbody>

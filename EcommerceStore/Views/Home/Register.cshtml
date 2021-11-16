@@ -47,6 +47,7 @@
                                 </span>
                             </div>
                             <input type="text"
+                                   required="required"
                                    class="form-control"
                                    placeholder="Tên tài khoản"
                                    name="registerViewModel.UserName" />
@@ -58,8 +59,9 @@
                                 </span>
                             </div>
                             <input type="password"
+                                   required="required"
                                    class="form-control"
-                                   placeholder="Mật khẩu"
+                                   placeholder="Mật khẩu (đủ 4 loại)"
                                    name="registerViewModel.Password" />
                         </div>
                         <div class="input-group form-group">
@@ -70,6 +72,7 @@
                             </div>
                             <input type="password"
                                    class="form-control"
+                                   required="required"
                                    placeholder="Xác nhận mật khẩu"
                                    name="registerViewModel.RePassword" />
                         </div>
@@ -81,6 +84,7 @@
                             </div>
                             <input type="text"
                                    class="form-control"
+                                   required="required"
                                    placeholder="Họ và tên"
                                    name="registerViewModel.FullName" />
                         </div>
@@ -92,6 +96,7 @@
                                 </span>
                             </div>
                             <input type="text"
+                                   required="required"
                                    class="form-control"
                                    placeholder="Số điện thoại"
                                    name="registerViewModel.PhoneNumber" />
@@ -104,6 +109,7 @@
                                 </span>
                             </div>
                             <input type="email"
+                                   required="required"
                                    class="form-control"
                                    placeholder="Email"
                                    name="registerViewModel.Email" />
@@ -135,6 +141,12 @@
                                    class="btn float-right login_btn" />
                         </div>
                     </form>
+                    <div class="form-group">
+                        <a href="@Url.Action("Login", "Home")"
+                           class="btn float-left login_btn">
+                            Trở lại
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
