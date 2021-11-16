@@ -4,6 +4,7 @@ using EcommerceStore.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -179,6 +180,38 @@ namespace EcommerceStore.Services
             }    
             _context.SaveChanges();
             return true;
+        }
+        public async Task<List<PaymentHistoryViewModel>> GetPaymentHistoryAsync(ClaimsPrincipal user)
+        {
+            var customer = await _userManager.GetUserAsync(user);
+            if (customer == null)
+                return new List<PaymentHistoryViewModel>();
+            var paymentHistory = await (from b in _context.Bill
+                                        where b.CustomerId == customer.Id && b.PaymentMethod != null && b.PaymentMethod != string.Empty
+                                        orderby b.DateCreatBill descending
+                                        select new PaymentHistoryViewModel
+                                        {
+                                            Id = b.BillId,
+                                            Total = b.TotalPrice,
+                                            PaymentMethod = b.PaymentMethod,
+                                            CreatedDate = b.DateCreatBill
+                                        }).ToListAsync();
+            return paymentHistory;
+        }
+        public async Task<List<PaymentDetailViewModel>> GetPaymentDetailAsync(int billId)
+        {
+            var paymentDetail = await (from b in _context.BillProduct
+                                       join g in _context.Product on b.ProductId equals g.ProductId
+                                       where b.BillId == billId
+                                       select new PaymentDetailViewModel
+                                       {
+                                           BillId = b.BillId,
+                                           ProductName = g.Name,
+                                           ProductPrice = g.Price,
+                                           Quantity = b.Quantity,
+                                           TotalProductPrice = b.TotalProductPrice
+                                       }).ToListAsync();
+            return paymentDetail;
         }
     }
 }
