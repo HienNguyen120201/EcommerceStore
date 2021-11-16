@@ -22,14 +22,14 @@ namespace EcommerceStore.Services
         public async Task<List<RevenueViewModel>> GetRevenuesAsync()
         {
             var revenue = await (from b in _context.Bill
-                                 where b.PaymentMethod != string.Empty
+                                 where b.PaymentMethod != string.Empty && b.PaymentMethod != null
                                  select new RevenueViewModel
                                  {
-                                     BillId=b.BillId,
-                                     FullName=b.UserName,
-                                     PaymentMethod=b.PaymentMethod,
-                                     PhoneNumber=b.PhoneNumber,
-                                     TotalPrice=b.TotalPrice
+                                     BillId = b.BillId,
+                                     FullName = b.UserName,
+                                     PaymentMethod = b.PaymentMethod,
+                                     PhoneNumber = b.PhoneNumber,
+                                     TotalPrice = b.TotalPrice
                                  }).ToListAsync();
             return revenue;
         }
