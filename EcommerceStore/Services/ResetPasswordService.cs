@@ -34,15 +34,10 @@ namespace EcommerceStore.Services
 
         public async Task<bool> SendMailResetPasswordAsync(string username)
         {
-            //_context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
             var customer = await _context.Customer.AsNoTracking()
                                         .Where(c => c.UserName == username)
                                         .Select(c => c)
                                         .FirstOrDefaultAsync();
-            //(from c in _context.Customer.AsNoTracking()
-            // where c.UserName == username
-            // select c.Email).FirstOrDefault();
-
             if (customer == null || string.IsNullOrEmpty(customer.Email))
             {
                 return false;
