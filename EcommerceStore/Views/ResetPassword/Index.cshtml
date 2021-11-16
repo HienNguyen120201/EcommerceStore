@@ -1,7 +1,7 @@
 ﻿@{
     Layout = null;
 }
-@model EcommerceStore.Models.LoginViewModel
+@model EcommerceStore.Models.RegisterViewModel
 
 
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
@@ -10,10 +10,11 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login Page</title>
+    <title> Lấy lại mật khẩu </title>
     <!--Made with love by Mutiullah Samim -->
     <!--Bootsrap 4 CDN-->
     <link rel="stylesheet"
@@ -35,17 +36,10 @@
         <div class="d-flex justify-content-center h-100">
             <div class="card">
                 <div class="card-header">
-                    <h3>Đăng nhập</h3>
-                    <div class="d-flex justify-content-end social_icon">
-                        <span><i class="fab fa-facebook-square"></i></span>
-                        <span>
-                            <i class="fab fa-google-plus-square"></i>
-                        </span>
-                        <span><i class="fab fa-twitter-square"></i></span>
-                    </div>
+                    <h3>Quên mật khẩu</h3>
                 </div>
                 <div class="card-body">
-                    <form asp-controller="Home" asp-action="Login" method="post">
+                    <form asp-controller="ResetPassword" asp-action="Index" method="post">
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">
@@ -53,43 +47,21 @@
                                 </span>
                             </div>
                             <input type="text"
-                                   required="required"
                                    class="form-control"
-                                   placeholder="Tên tài khoản"
-                                   name="loginViewModel.UserName"
-                                   value="@Model.UserName" />
-                        </div>
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                    <i class="fas fa-key"></i>
-                                </span>
-                            </div>
-                            <input type="password"
-                                   required="required"
-                                   class="form-control"
-                                   placeholder="Mật khẩu"
-                                   name="loginViewModel.Password" />
+                                   placeholder="Tên tài khoản... "
+                                   name="username" />
                         </div>
                         <div class="form-group">
                             <input type="submit"
-                                   value="Đăng nhập"
+                                   value="Khôi phục"
                                    class="btn float-right login_btn" />
                         </div>
                     </form>
                     <div class="form-group">
-                        <a href="@Url.Action("Index", "Home")"
+                        <a href="@Url.Action("Login", "Home")"
                            class="btn float-left login_btn">
                             Trở lại
                         </a>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <div class="d-flex justify-content-center links">
-                        Bạn chưa có tài khoản?<a href="@Url.Action("Register","Home")">Đăng ký</a>
-                    </div>
-                    <div class="d-flex justify-content-center">
-                        <a href="/ResetPassword">Quên mật khẩu?</a>
                     </div>
                 </div>
             </div>
