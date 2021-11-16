@@ -4,7 +4,7 @@
             content: ' ₫';
         }
 </style>
-<form asp-controller="PayMent" asp-action="PayMent" method="post" id="payment"></form>
+<form asp-controller="PayMent" asp-action="PayMent" method="post" id="payment" onsubmit="return kiemtra()"></form>
 <div class="section">
 		<!-- container -->
 		<div class="container">
@@ -18,27 +18,27 @@
 						</div>
 						<div class="form-group">
 							<label>Họ và tên</label>
-							<input class="input" id="input11" type="text" name="bill.Name" required="required" value="@(Model.Name)" onchange="setValue1()" form="payment"/>
+							<input class="input" id="input11" type="text" name="bill.Name" value="@(Model.Name)" onchange="setValue1()" form="payment"/>
 						</div>
 						<div class="form-group">
 							<label>Số nhà/Tên đường - Thôn</label>
-							<input class="input" id="input22" type="text" name="bill.Hamlet" required="required" value="@(Model.Hamlet)" onchange="setValue2()" form="payment"/>
+							<input class="input" id="input22" type="text" name="bill.Hamlet" value="@(Model.Hamlet)" onchange="setValue2()" form="payment"/>
 						</div>
 						<div class="form-group">
 							<label>Xã - Phường - Thị trấn</label>
-							<input class="input" id="input33" type="text" name="bill.Village" required="required" value="@(Model.Village)" onchange="setValue3()" form="payment"/>
+							<input class="input" id="input33" type="text" name="bill.Village" value="@(Model.Village)" onchange="setValue3()" form="payment"/>
 						</div>
 						<div class="form-group">
 							<label>Quận - Huyện - Thành phố</label>
-							<input class="input" id="input44" type="text" name="bill.District" required="required" value="@(Model.District)" onchange="setValue4()" form="payment"/>
+							<input class="input" id="input44" type="text" name="bill.District" value="@(Model.District)" onchange="setValue4()" form="payment"/>
 						</div>
 						<div class="form-group">
 							<label>Tỉnh - Thành phố</label>
-							<input class="input" id="input55" type="text" name="bill.Province" required="required" value="@(Model.Province)" onchange="setValue5()" form="payment"/>
+							<input class="input" id="input55" type="text" name="bill.Province" value="@(Model.Province)" onchange="setValue5()" form="payment"/>
 						</div>
 						<div class="form-group">
 							<label>Số điện thoại</label>
-							<input class="input" id="input66" type="tel" name="bill.Telephone" required="required" value="@(Model.Telephone)" onchange="setValue6()" form="payment"/>
+							<input class="input" id="input66" type="tel" name="bill.Telephone" value="@(Model.Telephone)" onchange="setValue6()" form="payment"/>
 						</div>
 					</div>
 					</div>
@@ -142,7 +142,7 @@
 						{
 						<div class="payment-method">
 							<div class="input-radio">
-								<input type="radio" name="bill.PaymentMethod" id="payment-1" value="Thanh toán bằng chuyển khoản" required="required" form="payment">
+								<input type="radio" name="bill.PaymentMethod" id="payment-1" class="dinh" value="Thanh toán bằng chuyển khoản" form="payment">
 								<label for="payment-1">
 									<span></span>
 									Chuyển khoản
@@ -152,7 +152,7 @@
 								</div>
 							</div>
 							<div class="input-radio">
-								<input type="radio" name="bill.PaymentMethod" id="payment-2" value="Thanh toán bằng ví điện tử" required="required" form="payment">
+								<input type="radio" name="bill.PaymentMethod" id="payment-2" class="dinh" value="Thanh toán bằng ví điện tử" form="payment">
 								<label for="payment-2">
 									<span></span>
 									Thanh toán bằng ví điện tử
@@ -162,7 +162,7 @@
 								</div>
 							</div>
 							<div class="input-radio">
-								<input type="radio" name="bill.PaymentMethod" id="payment-3" checked value="Thanh toán khi nhận hàng" required="required" form="payment">
+								<input type="radio" name="bill.PaymentMethod" id="payment-3" class="dinh" value="Thanh toán khi nhận hàng" form="payment">
 								<label for="payment-3">
 									<span></span>
 									Thanh toán khi nhận hàng
@@ -278,6 +278,44 @@
 				list[n].value=document.getElementById("input66").value;
 			}
 		  }
-		 
+function kiemtra(){
+    var d1 = document.getElementById("input11").value;
+    var d2= document.getElementById("input22").value;
+	var d3 = document.getElementById("input33").value;
+	var d4 = document.getElementById("input44").value;
+	var d5 = document.getElementById("input55").value;
+	var d6 = document.getElementById("input66").value;
+
+    if (d1=="") { //quy tắc 1
+        alert("Vui lòng nhập Họ và tên.");
+        return false;
+    }
+    if (d2=="") { //quy tắc 1
+        alert("Vui lòng nhập Số nhà/Tên đường - Thôn.");
+        return false;
+    } 
+	if (d3=="") { //quy tắc 1
+        alert("Vui lòng nhập Xã - Phường - Thị trấn.");
+        return false;
+    }
+	if (d4=="") { //quy tắc 1
+        alert("Vui lòng nhập Quận - Huyện - Thành phố.");
+        return false;
+    }
+	if (d5=="") { //quy tắc 1
+        alert("Vui lòng nhập Tỉnh - Thành phố.");
+        return false;
+    }
+	if (d6=="") { //quy tắc 1
+        alert("Vui lòng nhập Số điện thoại.");
+        return false;
+    }	
+	var gender_check = $('input:radio[class=dinh]:checked').val();
+	if ( !gender_check ) {
+    alert("Vui lòng chọn phương thức thanh toán.");
+    return false;
+}
+    return true;
+  }
 </script>
 }
