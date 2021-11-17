@@ -39,7 +39,7 @@
                                                     </div>
                                                     <div class="product-body">
                                                         <p class="product-category">@khuyenMai.Producer</p>
-                                                        <h3 class="product-name"><a href="@Url.Action("Product",new { id=khuyenMai.ProductId })">@khuyenMai.Name</a></h3>
+                                                        <h3 class="product-name"><a href="@Url.Action("Product","Product",new { id=khuyenMai.ProductId })">@khuyenMai.Name</a></h3>
                                                         <h4 class="product-price price">@khuyenMai.Price</h4>
                                                         <div class="product-rating">
                                                             @{
@@ -151,7 +151,7 @@
                                                     </div>
                                                     <div class="product-body">
                                                         <p class="product-category">@moi.Producer</p>
-                                                        <h3 class="product-name"><a href="@Url.Action("Product",new { id=moi.ProductId })">@moi.Name</a></h3>
+                                                        <h3 class="product-name"><a href="@Url.Action("Product","Product",new { id=moi.ProductId })">@moi.Name</a></h3>
                                                         <h4 class="product-price price">@moi.Price</h4>
                                                         <div class="product-rating">
                                                             @{
@@ -222,7 +222,7 @@
                                                     </div>
                                                     <div class="product-body">
                                                         <p class="product-category">@banChay.Producer</p>
-                                                        <h3 class="product-name"><a href="@Url.Action("Product",new { id=banChay.ProductId })">@banChay.Name</a></h3>
+                                                        <h3 class="product-name"><a href="@Url.Action("Product","Product",new { id=banChay.ProductId })">@banChay.Name</a></h3>
                                                         <h4 class="product-price price">@banChay.Price</h4>
                                                         <div class="product-rating">
                                                             @{
