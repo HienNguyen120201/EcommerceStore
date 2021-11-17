@@ -70,7 +70,7 @@ namespace EcommerceStore.Controllers
             }    
             await _paymentService.UpdateBillAsync(bill, User);
             bill = new BillAndBillDetailViewModel();
-            return RedirectToAction("Login", "Home");
+            return RedirectToAction("PaymentMethod", "PayMent");
         }
         public async Task<IActionResult> PaymentHistory()
         {
@@ -85,6 +85,18 @@ namespace EcommerceStore.Controllers
         {
             var paymentDetail = await _paymentService.GetPaymentDetailAsync(id);
             return View(paymentDetail);
+        }
+        [HttpGet]
+        public async Task<IActionResult> PaymentMethod()
+        {
+            var payment = await _paymentService.GetPayment(User);
+            return View(payment);
+        }
+        [HttpPost]
+        public async Task<IActionResult> PaymentMethod(PaymentMethodViewModel payment)
+        {
+            await _paymentService.UpdatePaymentMethodAsync(User, payment);
+            return RedirectToAction("PaymentHistory", "PayMent");
         }
     }
 }

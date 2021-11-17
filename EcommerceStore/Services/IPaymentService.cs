@@ -15,5 +15,7 @@ namespace EcommerceStore.Services
         Task<bool> DeleteProductAsync(ClaimsPrincipal user, BillAndBillDetailViewModel infor);
         Task<List<PaymentHistoryViewModel>> GetPaymentHistoryAsync(ClaimsPrincipal user);
         Task<List<PaymentDetailViewModel>> GetPaymentDetailAsync(int billId);
+        Task UpdatePaymentMethodAsync(ClaimsPrincipal user, PaymentMethodViewModel payment);
+        Task<PaymentMethodViewModel> GetPayment(ClaimsPrincipal user);
     }
 }

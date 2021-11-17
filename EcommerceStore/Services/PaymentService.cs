@@ -212,5 +212,29 @@ namespace EcommerceStore.Services
                                        }).ToListAsync();
             return paymentDetail;
         }
+
+        public async Task<PaymentMethodViewModel> GetPayment(ClaimsPrincipal user)
+        {
+            var customer = await _userManager.GetUserAsync(user);
+            var bill = await (from b in _context.Bill
+                              where b.CustomerId == customer.Id && b.PaymentMethod == string.Empty
+                              select b).FirstOrDefaultAsync();
+            var payment = new PaymentMethodViewModel
+            {
+                BillId = bill.BillId,
+                CreatedDate = bill.DateCreatBill,
+                Total = bill.TotalPrice
+            };
+            return payment;
+        }
+        public async Task UpdatePaymentMethodAsync(ClaimsPrincipal user, PaymentMethodViewModel payment)
+        {
+            var customer = await _userManager.GetUserAsync(user);
+            var updateMethod = await (from b in _context.Bill
+                                      where b.CustomerId == customer.Id && b.PaymentMethod == string.Empty
+                                      select b).FirstOrDefaultAsync();
+            updateMethod.PaymentMethod = payment.PaymentMethod;
+            _context.SaveChanges();
+        }
     }
 }
