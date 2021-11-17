@@ -96,7 +96,8 @@ namespace EcommerceStore.Services
                                       Rating = p.Rating,
                                       Status = p.Status,
                                       Special = p.Special,
-                                      SellOff = p.SellOff
+                                      SellOff = p.SellOff,
+                                      TimeSellOff = p.TimeSellOff
                                   }).ToListAsync();
             return products;
         }

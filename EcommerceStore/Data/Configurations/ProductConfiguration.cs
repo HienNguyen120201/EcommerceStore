@@ -23,6 +23,8 @@ namespace EcommerceStore.Data.Configurations
             builder.Property(product => product.Rating);
             builder.Property(product => product.Special);
             builder.Property(product => product.SellOff);
+            builder.Property(product => product.TimeSellOff);
+
         }
     }
 }
