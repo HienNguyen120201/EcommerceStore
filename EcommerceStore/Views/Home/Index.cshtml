@@ -2,7 +2,7 @@
     ViewData["Title"] = "Home Page";
 }
 @model List<ProductViewModel>
-<body onload="startCountdown(99999);">
+<body onload="startCountdown(@Model.Find(p=>p.SellOff == @Model.Max(p=>p.SellOff)).TimeSellOff);">
 <div class="section">
     <!-- container -->
     <div class="container">
@@ -109,7 +109,7 @@
                     </ul>
                     <h2 class="text-uppercase">Khuyến mãi hot nhất</h2>
 					<p>New Collection Up to @Model.Max(p=>p.SellOff)% OFF</p>
-                    <a class="primary-btn cta-btn" href="#">Xem chi tiết</a>
+                    <a class="primary-btn cta-btn" href="@Url.Action("Product",new { id =  @Model.Find(p=>p.SellOff == @Model.Max(p=>p.SellOff)).ProductId})">Xem chi tiết</a>
                 </div>
             </div>
         </div>
