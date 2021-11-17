@@ -70,7 +70,7 @@ namespace EcommerceStore.Controllers
             }    
             await _paymentService.UpdateBillAsync(bill, User);
             bill = new BillAndBillDetailViewModel();
-            return View(bill);
+            return RedirectToAction("Login", "Home");
         }
         public async Task<IActionResult> PaymentHistory()
         {

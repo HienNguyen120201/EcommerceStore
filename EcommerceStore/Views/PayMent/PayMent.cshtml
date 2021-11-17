@@ -140,38 +140,6 @@
 					@{
 						if(Model!=null && Model.Total!=0 &&Model.ListProduct.Count!=0)
 						{
-						<div class="payment-method">
-							<div class="input-radio">
-								<input type="radio" name="bill.PaymentMethod" id="payment-1" class="dinh" value="Thanh toán bằng chuyển khoản" form="payment">
-								<label for="payment-1">
-									<span></span>
-									Chuyển khoản
-								</label>
-								<div class="caption">
-									<p>Vui lòng chuyển khoản với cú pháp</p>
-								</div>
-							</div>
-							<div class="input-radio">
-								<input type="radio" name="bill.PaymentMethod" id="payment-2" class="dinh" value="Thanh toán bằng ví điện tử" form="payment">
-								<label for="payment-2">
-									<span></span>
-									Thanh toán bằng ví điện tử
-								</label>
-								<div class="caption">
-									<p>Quét QR</p>
-								</div>
-							</div>
-							<div class="input-radio">
-								<input type="radio" name="bill.PaymentMethod" id="payment-3" class="dinh" value="Thanh toán khi nhận hàng" form="payment">
-								<label for="payment-3">
-									<span></span>
-									Thanh toán khi nhận hàng
-								</label>
-								<div class="caption">
-									<p>Chúng tôi sẽ xác nhận </p>
-								</div>
-							</div>
-						</div>
 						<div class="input-checkbox">
 							<input type="checkbox" id="terms" required="required" checked>
 							<label for="terms">
@@ -179,7 +147,7 @@
 								Tôi đồng ý với các <a href="#" style="color: blue;">Điều khoản & và điều kiện</a>
 							</label>
 						</div>
-						<button class="primary-btn order-submit" value="p" name="bill.Type" form="payment">Thanh toán</button>
+						<button class="primary-btn order-submit" value="p" name="bill.Type" form="payment">Đặt hàng</button>
 						}
 						else
 						{
@@ -348,17 +316,6 @@ function kiemtra(){
 		})
         return false;
     }	
-	var gender_check = $('input:radio[class=dinh]:checked').val();
-	if ( !gender_check ) {
-		Swal.fire({
-		  icon: 'error',
-	      title: 'Oops...',
-		  text: 'Vui lòng chọn phương thức thanh toán!',
-		  showConfirmButton: false,
-		  timer: 1300
-		})
-		return false;
-	}
     return true;
 }
 </script>

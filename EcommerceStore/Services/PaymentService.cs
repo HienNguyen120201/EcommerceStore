@@ -164,7 +164,6 @@ namespace EcommerceStore.Services
                                  select b).FirstOrDefaultAsync();
             if (bill_null == null) return false;
             bill_null.UserName = bill.Name;
-            bill_null.PaymentMethod = bill.PaymentMethod;
             bill_null.Thon = bill.Hamlet;
             bill_null.Xa = bill.Village;
             bill_null.Huyen = bill.District;

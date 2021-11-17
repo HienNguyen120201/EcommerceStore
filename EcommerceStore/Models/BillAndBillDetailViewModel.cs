@@ -7,7 +7,6 @@ namespace EcommerceStore.Models
         public List<BillDetailViewModel> ListProduct {  get; set; }
         public BillDetailViewModel Product { get; set; }
         public int Total {  get; set; }
-        public string PaymentMethod {  get; set;}
         public string Name { get; set; }
         public string Hamlet { get; set; }
         public string Village { get; set; }
