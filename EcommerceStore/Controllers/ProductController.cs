@@ -44,7 +44,7 @@ namespace EcommerceStore.Controllers
             if (!User.Identity.IsAuthenticated)
                 return RedirectToAction("Login", "Home");
             await _productService.InsertEvalutionAsync(User, product);
-            return RedirectToAction("Laptop");
+            return RedirectToAction("Index","Home");
         }
         [HttpPost]
         public async Task<IActionResult> InsertProduct(ProductViewModel product)
@@ -52,7 +52,7 @@ namespace EcommerceStore.Controllers
             if (!User.Identity.IsAuthenticated)
                 return RedirectToAction("Login", "Home");
             await _productService.InsertProductAsync(User, product);
-            return RedirectToAction("Laptop");
+            return RedirectToAction("PayMent","PayMent");
         }
     }
 }
