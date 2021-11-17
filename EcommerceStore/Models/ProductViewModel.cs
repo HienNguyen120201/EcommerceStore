@@ -13,7 +13,12 @@ namespace EcommerceStore.Models
         public string Status { get; set; }
         public int Price { get; set; }
         public string ImgUrl { get; set; }
+        public string Special { get; set; }
         public int Rating { get; set; }
+        public string SellOff { get; set; }
+        public int TimeSellOff { get; set; }
+
+
         public List<DescriptionViewModel> Descriptions { get; set; }
         public List<EvaluationViewModel> Evalutions { get; set; }
         public InsertEvaluationViewModel InsertEvaluation { get; set; }

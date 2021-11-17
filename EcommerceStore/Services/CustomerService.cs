@@ -2,6 +2,8 @@
 using EcommerceStore.Data.Entities;
 using EcommerceStore.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -80,6 +82,24 @@ namespace EcommerceStore.Services
                 return true;
             }
             return false;
+        }
+        public async Task<List<ProductViewModel>> GetAllProductAsync()
+        {
+            var products = await (from p in _context.Product
+                                  select new ProductViewModel
+                                  {
+                                      ImgUrl = p.ImgUrl,
+                                      ProductId = p.ProductId,
+                                      Name = p.Name,
+                                      Price = p.Price,
+                                      Producer = p.Producer,
+                                      Rating = p.Rating,
+                                      Status = p.Status,
+                                      Special = p.Special,
+                                      SellOff = p.SellOff,
+                                      TimeSellOff = p.TimeSellOff
+                                  }).ToListAsync();
+            return products;
         }
 
         public async Task SignOutAsync()

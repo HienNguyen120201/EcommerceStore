@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="~/css/slick.css" />
+    <link type="text/css" rel="stylesheet" href="css/slick-theme.css"/>
+    <link type="text/css" rel="stylesheet" href="css/nouislider.min.css"/>
     <link type="text/css" rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
@@ -92,7 +94,7 @@
                 <div id="responsive-nav">
                     <!-- NAV -->
                     <ul class="main-nav nav navbar-nav">
-                        <li><a href="#">Trang chủ</a></li>
+                        <li><a href="@Url.Action("Index","Home")">Trang chủ</a></li>
                         <li><a href="@Url.Action("Laptop","Product")">Laptop</a></li>
                         <li><a href="@Url.Action("Smart","Product")">Di động</a></li>
                         <li><a href="@Url.Action("Accessory","Product")">Phụ kiện</a></li>

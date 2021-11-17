@@ -17,6 +17,9 @@ namespace EcommerceStore.Data.Entities
         public string ImgUrl { get; set; }
         public int Rating { get; set; }
         public string Special { get; set; }
+        public string SellOff { get; set; }
+        public int TimeSellOff { get; set; }
+
 
         public List<Description> Desc { get; set; }
         public List<Evaluation> Evaluations { get; set; }
