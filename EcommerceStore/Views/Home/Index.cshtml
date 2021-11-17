@@ -109,7 +109,7 @@
                     </ul>
                     <h2 class="text-uppercase">Khuyến mãi hot nhất</h2>
 					<p>New Collection Up to @Model.Max(p=>p.SellOff)% OFF</p>
-                    <a class="primary-btn cta-btn" href="@Url.Action("Product",new { id =  @Model.Find(p=>p.SellOff == @Model.Max(p=>p.SellOff)).ProductId})">Xem chi tiết</a>
+                    <a class="primary-btn cta-btn" href="@Url.Action("Product","Product",new { id =  @Model.Find(p=>p.SellOff == @Model.Max(p=>p.SellOff)).ProductId})">Xem chi tiết</a>
                 </div>
             </div>
         </div>
@@ -117,7 +117,6 @@
     </div>
     <!-- /container -->
 </div>
-}
 <!-- /HOT DEAL SECTION -->
 <!-- SECTION -->
 <div class="section">
