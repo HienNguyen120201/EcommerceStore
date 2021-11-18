@@ -37,6 +37,7 @@ namespace EcommerceStore.Services
                                      orderby b.ProductPrice
                                      select new BillDetailViewModel
                                      {
+                                        SeflOff=c.SellOff,
                                         ProductName =b.ProductName,
                                         ProductPrice=b.ProductPrice,
                                         Quantity=b.Quantity,
@@ -123,6 +124,7 @@ namespace EcommerceStore.Services
                                        orderby b.ProductPrice
                                        select new BillDetailViewModel
                                       {
+                                          SeflOff = c.SellOff,
                                           ProductName = b.ProductName,
                                           ProductPrice = b.ProductPrice,
                                           Quantity = b.Quantity,

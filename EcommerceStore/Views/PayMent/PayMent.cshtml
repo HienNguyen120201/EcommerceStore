@@ -79,12 +79,19 @@
 													<tr>
 														<td>
 														<a href="@Url.Action("Product","Product",new { id=Data.ProductId })">
-															<img src="@(Data.Url)" title="" width="60" height="60">
+																<img src="@(Data.Url)" title="" width="60" height="60">
 														</a>
 														</td>
 														<td>
 														<a href="@Url.Action("Product","Product",new { id=Data.ProductId })">
 															@Data.ProductName
+															@{
+																if(@Data.SeflOff!="0")
+																{
+																	<br>
+																	<i style="color:red">(-@Data.SeflOff%)</i>
+																}
+															}
 														</a>
 														</td>
 														<td class="price1 text-right"style="width: 110px">@(Data.ProductPrice)</td>
