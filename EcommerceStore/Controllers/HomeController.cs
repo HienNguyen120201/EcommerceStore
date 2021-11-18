@@ -11,7 +11,7 @@ namespace EcommerceStore.Controllers
     {
         private readonly ICustomerService _customerService;
         private readonly ILogger<HomeController> _logger;
-        public HomeController(ILogger<HomeController> logger, ICustomerService customerService, IProductService iProductService)
+        public HomeController(ILogger<HomeController> logger, ICustomerService customerService)
         {
             _logger = logger;
             _customerService = customerService;        
