@@ -24,6 +24,7 @@ namespace EcommerceStore.Data.Configurations
             builder.Property(product => product.Special);
             builder.Property(product => product.SellOff);
             builder.Property(product => product.TimeSellOff);
+            builder.Property(product => product.OldPrice);
 
         }
     }

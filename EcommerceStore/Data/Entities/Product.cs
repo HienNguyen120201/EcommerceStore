@@ -19,7 +19,7 @@ namespace EcommerceStore.Data.Entities
         public string Special { get; set; }
         public string SellOff { get; set; }
         public int TimeSellOff { get; set; }
-
+        public int OldPrice { get; set; }
 
         public List<Description> Desc { get; set; }
         public List<Evaluation> Evaluations { get; set; }
