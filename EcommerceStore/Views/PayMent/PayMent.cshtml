@@ -86,10 +86,10 @@
 														<a href="@Url.Action("Product","Product",new { id=Data.ProductId })">
 															@Data.ProductName
 															@{
-																if(@Data.SeflOff!="0")
+																if(@Data.SellOff!="0")
 																{
 																	<br>
-																	<i style="color:red">(-@Data.SeflOff%)</i>
+																	<i style="color:red">(-@Data.SellOff%)</i>
 																}
 															}
 														</a>

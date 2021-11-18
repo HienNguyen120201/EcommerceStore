@@ -8,6 +8,6 @@
         public string Url { get; set; }
         public int ProductId { get; set; }
         public int TotalProductPrice { get; set; }
-        public string SeflOff {  get; set; }
+        public string SellOff {  get; set; }
     }
 }
