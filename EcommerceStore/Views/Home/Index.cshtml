@@ -22,8 +22,10 @@
 							<div class="products-slick" data-nav="#slick-nav-1">
                                 @foreach (var khuyenMai in Model)
                                 {
+                                    
                                     if (khuyenMai.Special == "khuyenmai")
                                     {
+                                        var price =@khuyenMai.Price - (@khuyenMai.Price*Int32.Parse(khuyenMai.SellOff))/100;
                                         <!-- product -->
                                         <form asp-action="InsertProduct" asp-controller="Product" method="post" onsubmit="notify()">
                                             <input type="hidden" name="product.InsertProductToCart.ProductId" value="@khuyenMai.ProductId" />
@@ -34,13 +36,13 @@
                                                     <div class="product-img">
                                                         <img src="@khuyenMai.ImgUrl" alt="">
                                                         <div class="product-label">
-                                                            <span class="sale">@khuyenMai.SellOff</span>
+                                                            <span class="sale">-@khuyenMai.SellOff%</span>
                                                         </div>
                                                     </div>
                                                     <div class="product-body">
                                                         <p class="product-category">@khuyenMai.Producer</p>
                                                         <h3 class="product-name"><a href="@Url.Action("Product","Product",new { id=khuyenMai.ProductId })">@khuyenMai.Name</a></h3>
-                                                        <h4 class="product-price price">@khuyenMai.Price</h4>
+                                                        <h4 class="product-price price">@price</h4>
                                                         <div class="product-rating">
                                                             @{
                                                                 for (int i = 0; i < khuyenMai.Rating; i++)
