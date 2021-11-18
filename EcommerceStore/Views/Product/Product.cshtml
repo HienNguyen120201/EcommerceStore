@@ -30,11 +30,20 @@
                                     }
                                 }
                             </div>
-                            10 Reviews |
+                            @Model.Evalutions.Count Reviews |
                             <a class="review-link" href="#tab1">Xem chi tiết và đánh giá</a>
                         </div>
                         <div>
-                            <h3 class="product-price price">@Model.Price</h3><br>
+                            <div class="product-price-old-new">
+                                @if (Model.OldPrice != 0)
+                                {
+                                    <h3 class="product-price price">@Model.Price</h3> <del class="product-old-price price">@Model.OldPrice</del>
+                                }
+                                else
+                                {
+                                    <h3 class="product-price price">@Model.Price </h3>
+                                }
+                            </div><br>
                             <span class="product-available">Có sẵn trong kho</span>
                         </div>
                         <div class="product-options">

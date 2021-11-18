@@ -40,7 +40,9 @@ namespace EcommerceStore.Services
                                     Price = l.Price,
                                     ProductId = l.ProductId,
                                     ImgUrl = l.ImgUrl,
-                                    Rating = l.Rating
+                                    Rating = l.Rating,
+                                    SellOff=l.SellOff,
+                                    OldPrice=l.OldPrice
                                 }).ToListAsync();
             return laptop;
         }
@@ -64,7 +66,9 @@ namespace EcommerceStore.Services
                                     Price = l.Price,
                                     ProductId = l.ProductId,
                                     ImgUrl = l.ImgUrl,
-                                    Rating = l.Rating
+                                    Rating = l.Rating,
+                                    SellOff=l.SellOff,
+                                    OldPrice=l.OldPrice
                                 }).ToListAsync();
             return smart;
         }
@@ -88,7 +92,9 @@ namespace EcommerceStore.Services
                                     Price = l.Price,
                                     ProductId = l.ProductId,
                                     ImgUrl = l.ImgUrl,
-                                    Rating = l.Rating
+                                    Rating = l.Rating,
+                                    SellOff=l.SellOff,
+                                    OldPrice=l.OldPrice
                                 }).ToListAsync();
             return accessory;
         }
@@ -104,7 +110,9 @@ namespace EcommerceStore.Services
                                      Price = p.Price,
                                      Producer = p.Producer,
                                      Rating = p.Rating,
-                                     Status = p.Status
+                                     Status = p.Status,
+                                     SellOff=p.SellOff,
+                                     OldPrice=p.OldPrice
                                  }).FirstOrDefaultAsync();
             return product;
         }

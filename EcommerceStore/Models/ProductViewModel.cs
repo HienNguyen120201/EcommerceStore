@@ -17,6 +17,7 @@ namespace EcommerceStore.Models
         public int Rating { get; set; }
         public string SellOff { get; set; }
         public int TimeSellOff { get; set; }
+        public int OldPrice { get; set; }
 
 
         public List<DescriptionViewModel> Descriptions { get; set; }

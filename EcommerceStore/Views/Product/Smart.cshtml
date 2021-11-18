@@ -94,7 +94,16 @@
                                     <div class="product-body">
                                         <p class="product-category">@laptop.Producer</p>
                                         <h3 class="product-name"><a href="@Url.Action("Product",new { id=laptop.ProductId })">@laptop.Name</a></h3>
-                                        <h4 class="product-price price">@laptop.Price</h4>
+                                        <div class="product-price-old-new">
+                                            @if (laptop.OldPrice != 0)
+                                            {
+                                                <h4 class="product-price price">@laptop.Price</h4> <del class="product-old-price price">@laptop.OldPrice</del>
+                                            }
+                                            else
+                                            {
+                                                <h4 class="product-price price">@laptop.Price </h4>
+                                            }
+                                        </div>
                                         <div class="product-rating">
                                             @{
                                                 for (int i = 0; i < laptop.Rating; i++)
