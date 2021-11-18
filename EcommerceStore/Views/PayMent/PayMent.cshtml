@@ -147,12 +147,16 @@
 								Tôi đồng ý với các <a href="#" style="color: blue;">Điều khoản & và điều kiện</a>
 							</label>
 						</div>
-						<button class="primary-btn order-submit" value="p" name="bill.Type" form="payment">Đặt hàng</button>
+						<div  class="text-right">
+						<a class="btn btn-info my-1"href="@Url.Action("Index", "Home")" >Tiếp tục mua hàng</a>
+						<button class="btn btn-success my-1" value="p" name="bill.Type" style="margin-left:15px" form="payment">Đặt hàng</button>
+						
+						</div>
 						}
 						else
 						{
 							<div class="col-md-50 text-center">
-							<a href="@Url.Action("Index", "Home")" style="font-size: 25px;"><strong>Tiếp tục mua hàng</strong></a>
+							<a class="btn btn-success my-1"href="@Url.Action("Index", "Home")" style="font-size: 25px;"><strong>Tiếp tục mua hàng</strong></a>
 							</div>
 						}
 					}

@@ -37,7 +37,7 @@ namespace EcommerceStore.Services
                                      orderby b.ProductPrice
                                      select new BillDetailViewModel
                                      {
-                                        ProductName=b.ProductName,
+                                        ProductName =b.ProductName,
                                         ProductPrice=b.ProductPrice,
                                         Quantity=b.Quantity,
                                         Url=c.ImgUrl,
@@ -136,6 +136,19 @@ namespace EcommerceStore.Services
         {
             var customer = await _userManager.GetUserAsync(user);
             var bill = await (from b in _context.Bill
+                              where b.CustomerId == customer.Id && b.PaymentMethod == string.Empty
+                              select new BillAndBillDetailViewModel
+                              {
+                                  Name = b.UserName,
+                                  Hamlet = b.Thon,
+                                  Village = b.Xa,
+                                  District = b.Huyen,
+                                  Province = b.Tinh,
+                                  Telephone = b.PhoneNumber
+                              }).FirstOrDefaultAsync();
+            if (bill.Name == string.Empty || bill.Name==null)
+            {
+                bill = await (from b in _context.Bill
                               where b.CustomerId == customer.Id && b.PaymentMethod != string.Empty
                               orderby b.DateCreatBill descending
                               select new BillAndBillDetailViewModel
@@ -147,6 +160,7 @@ namespace EcommerceStore.Services
                                   Province = b.Tinh,
                                   Telephone = b.PhoneNumber
                               }).FirstOrDefaultAsync();
+            }
             if (bill == null) return false;
             infor.Name = bill.Name;
             infor.Hamlet = bill.Hamlet;
@@ -234,6 +248,8 @@ namespace EcommerceStore.Services
                                       where b.CustomerId == customer.Id && b.PaymentMethod == string.Empty
                                       select b).FirstOrDefaultAsync();
             updateMethod.PaymentMethod = payment.PaymentMethod;
+
+            updateMethod.DateCreatBill = DateTime.UtcNow;
             _context.SaveChanges();
         }
     }

@@ -87,25 +87,24 @@ ul, ol {
 	Buttons
 \*----------------------------*/
 
-.primary-btn {
-    display: inline-block;
-    padding: 12px 30px;
-    background-color: #D10024;
-    border: none;
-    border-radius: 40px;
-    color: #FFF;
-    text-transform: uppercase;
-    font-weight: 700;
-    text-align: center;
-    -webkit-transition: 0.2s all;
-    transition: 0.2s all;
+.my-1 {
+    display: inline-block !important;
+    padding: 12px 30px !important;
+    border: none !important;
+    border-radius: 40px !important;
+    color: #FFF !important;
+    text-transform: uppercase !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    -webkit-transition: 0.2s all !important;
+    transition: 0.2s all !important;
 }
 
-    .primary-btn:hover, .primary-btn:focus {
-        opacity: 0.8;
-        color: #FFF;
+    .my-1:hover, .my-1:focus {
+        opacity: 0.9 !important;
+        color: #FFF !important;
+        background-color: #D10024 !important;
     }
-
 /*----------------------------*\
 	Inputs
 \*----------------------------*/
