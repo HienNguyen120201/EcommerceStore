@@ -1,0 +1,738 @@
+commit 7e6d0f10d1a7f3cbecfca8db17f82feb3e33d53b
+Author: HienNguyen120201 <90005023+HienNguyen120201@users.noreply.github.com>
+Date:   Fri Nov 19 12:00:48 2021 +0700
+
+    Develop (#20)
+    
+    * update database
+    
+    Remove color, storage attribute in product entity. Add ImgUrl attribute in product entity
+    
+    * create login+register
+    
+    * create login+register
+    
+    * xóa
+    
+    * Update site.css
+    
+    * Delete EcommerceStore.csprojAssemblyReference.cache
+    
+    * Layout (#6)
+    
+    * init
+    
+    * Init_layout
+    
+    * Update .suo
+    
+    * Sửa tiếng việt
+    
+    * Update site.css
+    
+    * xóa
+    
+    * xóa
+    
+    * .
+    
+    * Delete EcommerceStore.csprojAssemblyReference.cache
+    
+    Co-authored-by: binhbuibksg0123 <74866715+binhbuibksg0123@users.noreply.github.com>
+    
+    * update database
+    
+    Add Evaluation entity and Rating property in product entity
+    
+    * update database (#8)
+    
+    Add attribute for product entity
+    
+    * Store (#9)
+    
+    * create store
+    
+    * product
+    
+    * update database
+    
+    Add main desc attribute
+    
+    * create des+filter (#10)
+    
+    * UpdateDb
+    
+    Add MainDesc attribute in Description entity
+    
+    * insert+ get evaluation (#11)
+    
+    * Insert Product To DB
+    
+    * update database
+    
+    update database 09/11/2021
+    
+    * Complete InsertProduct (#12)
+    
+    * update db
+    
+    add admin attribute
+    
+    * create adminn
+    
+    * complete
+    
+    * complete payment
+    
+    * complete payment (#13)
+    
+    Co-authored-by: HienNguyen120201 <90005023+HienNguyen120201@users.noreply.github.com>
+    
+    * add notify
+    
+    * Update payment and something
+    
+    * Update (#15)
+    
+    * fix
+    
+    * Update payment
+    
+    * fix một vài thứ
+    
+    * Update PayMent.cshtml
+    
+    * add admin in layout
+    
+    * Update PayMent.cshtml
+    
+    * CreatePaymentHistory (#17)
+    
+    * CreatePaymentHistory
+    
+    * Update PaymentHistory.cshtml
+    
+    Co-authored-by: HienNguyen120201 <90005023+HienNguyen120201@users.noreply.github.com>
+    
+    * create ResetPassword
+    
+    * Update ResetPasswordService.cs
+    
+    * fix payment
+    
+    * Created payment method (#18)
+    
+    * Main page (#19)
+    
+    * Mainpage
+    
+    initial version of mainpage
+    
+    * UpdateMainPage
+    
+    * Update Mainpage
+    
+    * Update Mainpage
+    
+    * Update Mainpage
+    
+    * Update Index.cshtml
+    
+    * Update Index.cshtml
+    
+    Co-authored-by: HienNguyen120201 <90005023+HienNguyen120201@users.noreply.github.com>
+    
+    * Update ProductController.cs
+    
+    * Update Mainpage
+    
+    * Update Payment
+    
+    * Update DB
+    
+    * Update payment
+    
+    * add oldprice
+    
+    * spell fix payment
+    
+    * Update _Layout.cshtml - FIx mail part
+    
+    Co-authored-by: binhbuibksg0123 <74866715+binhbuibksg0123@users.noreply.github.com>
+    Co-authored-by: luucongdinh113 <83592031+luucongdinh113@users.noreply.github.com>
+    Co-authored-by: JeFlame <63411215+JeFlame@users.noreply.github.com>
+    Co-authored-by: Nam Nguyen <75629713+hnamng2301@users.noreply.github.com>
+    Co-authored-by: JeFlame <hoangvu130301@gmail.com>
+
+commit e5863d2c49979c26fe40037159e4e219a087297c
+Author: JeFlame <hoangvu130301@gmail.com>
+Date:   Thu Nov 18 23:51:00 2021 +0700
+
+    Update _Layout.cshtml - FIx mail part
+
+commit 2223e8a1b170e55b52a7b50c3347ceafa97c9e78
+Author: luucongdinh113 <83592031+luucongdinh113@users.noreply.github.com>
+Date:   Thu Nov 18 22:06:21 2021 +0700
+
+    spell fix payment
+
+commit f27bc9627f3e0274abcab58c52a172c089157e30
+Author: HienNguyen120201 <90005023+HienNguyen120201@users.noreply.github.com>
+Date:   Thu Nov 18 20:04:09 2021 +0700
+
+    add oldprice
+
+commit ae7b8e4bf35ce1e4dd280715cd7ff10a429d0d9f
+Author: luucongdinh113 <83592031+luucongdinh113@users.noreply.github.com>
+Date:   Thu Nov 18 17:25:41 2021 +0700
+
+    Update payment
+
+commit bad04278312c1fc2ed6c2aa466ec2a29bd67473f
+Author: luucongdinh113 <83592031+luucongdinh113@users.noreply.github.com>
+Date:   Thu Nov 18 15:57:58 2021 +0700
+
+    Update DB
+
+commit f3aec2e788bb8f0574cf552423ec75ddef0400d3
+Author: luucongdinh113 <83592031+luucongdinh113@users.noreply.github.com>
+Date:   Thu Nov 18 15:42:28 2021 +0700
+
+    Update Payment
+
+commit 23ff12782b1fdac346c34fc7a5907fee0ab2301b
+Author: binhbuibksg0123 <74866715+binhbuibksg0123@users.noreply.github.com>
+Date:   Thu Nov 18 03:10:50 2021 -0500
+
+    Update Mainpage
+
+commit 663aa4a816484be0396c1e5861241efd957b29e1
+Author: binhbuibksg0123 <74866715+binhbuibksg0123@users.noreply.github.com>
+Date:   Thu Nov 18 03:03:39 2021 -0500
+
+    Update HomeController.cs
+
+commit af5a6d97fb06156498a699d1d85132d7b25a64aa
+Author: binhbuibksg0123 <74866715+binhbuibksg0123@users.noreply.github.com>
+Date:   Thu Nov 18 03:00:09 2021 -0500
+
+    Update Index.cshtml
+
+commit 2f186df4227034d5cd2b43cf7d41e8964b2166a5
+Author: HienNguyen120201 <90005023+HienNguyen120201@users.noreply.github.com>
+Date:   Wed Nov 17 16:10:17 2021 +0700
+
+    Update ProductController.cs
+
+commit 907dae442b931f948a25003c36cc0160a863d2e4
+Author: binhbuibksg0123 <74866715+binhbuibksg0123@users.noreply.github.com>
+Date:   Wed Nov 17 03:57:12 2021 -0500
+
+    Main page (#19)
+    
+    * Mainpage
+    
+    initial version of mainpage
+    
+    * UpdateMainPage
+    
+    * Update Mainpage
+    
+    * Update Mainpage
+    
+    * Update Mainpage
+    
+    * Update Index.cshtml
+    
+    * Update Index.cshtml
+    
+    Co-authored-by: HienNguyen120201 <90005023+HienNguyen120201@users.noreply.github.com>
+
+commit ee4408d581b9ce5d59f1b5a530d85746d3ee8a06
+Author: binhbuibksg0123 <74866715+binhbuibksg0123@users.noreply.github.com>
+Date:   Wed Nov 17 03:56:30 2021 -0500
+
+    Update Index.cshtml
+
+commit 07ae3d583d375af939b268b5f4f1f0fc1a4147ac
+Author: HienNguyen120201 <90005023+HienNguyen120201@users.noreply.github.com>
+Date:   Wed Nov 17 15:52:16 2021 +0700
+
+    Update Index.cshtml
+
+commit f29c443e79eb6c16b3ce84e0f71ebc718ff2c948
+Author: Nam Nguyen <75629713+hnamng2301@users.noreply.github.com>
+Date:   Wed Nov 17 15:32:40 2021 +0700
+
+    Created payment method (#18)
+
+commit 8be1fc07a4173e2bb7c933b529eaa649e8411b35
+Author: binhbuibksg0123 <74866715+binhbuibksg0123@users.noreply.github.com>
+Date:   Wed Nov 17 03:31:27 2021 -0500
+
+    Update Mainpage
+
+commit b32ae9b6d71cea5e1badd5dee2114fbe58657857
+Author: Nam Nguyen <meomaythongminh3@gmail.com>
+Date:   Wed Nov 17 15:25:34 2021 +0700
+
+    Created payment method
+
+commit c5214c550e95778d486ad59ff65e3cd4f626c90d
+Author: binhbuibksg0123 <74866715+binhbuibksg0123@users.noreply.github.com>
+Date:   Wed Nov 17 02:46:42 2021 -0500
+
+    Update Mainpage
+
+commit cb026a2adc3cc2bcd9cc8d453fd09db27fc2e50f
+Author: binhbuibksg0123 <74866715+binhbuibksg0123@users.noreply.github.com>
+Date:   Wed Nov 17 02:33:28 2021 -0500
+
+    Update Mainpage
+
+commit 9904b68e624fda5d12fea2d85922fe585bdc7a5f
+Merge: 4e9149d 23590dd
+Author: Nam Nguyen <meomaythongminh3@gmail.com>
+Date:   Wed Nov 17 12:31:05 2021 +0700
+
+    On main: !!GitHub_Desktop<main>
+
+commit 23590dd62c5985fba96b6b9f751eb3e9b87dffca
+Author: Nam Nguyen <meomaythongminh3@gmail.com>
+Date:   Wed Nov 17 12:31:05 2021 +0700
+
+    index on main: 4e9149d Update Introdution
+
+commit 97da4199093e64a22a91e11afb84243f88075eaf
+Author: binhbuibksg0123 <74866715+binhbuibksg0123@users.noreply.github.com>
+Date:   Wed Nov 17 00:20:40 2021 -0500
+
+    UpdateMainPage
+
+commit 79c99114e826430cc2ba2281df43318ed892b52e
+Author: HienNguyen120201 <90005023+HienNguyen120201@users.noreply.github.com>
+Date:   Wed Nov 17 12:15:01 2021 +0700
+
+    fix payment
+
+commit 5515eb95c70cb21f35a93a95f42480f9ad8e6de5
+Author: HienNguyen120201 <90005023+HienNguyen120201@users.noreply.github.com>
+Date:   Wed Nov 17 00:39:37 2021 +0700
+
+    Update ResetPasswordService.cs
+
+commit 923b706640caf5f64d40a8f0ba22bec14c0e7aa8
+Author: HienNguyen120201 <90005023+HienNguyen120201@users.noreply.github.com>
+Date:   Tue Nov 16 23:59:30 2021 +0700
+
+    create ResetPassword
+
+commit e0eaa66576d5c6b7b71269bbd3fc442a13d90589
+Author: JeFlame <63411215+JeFlame@users.noreply.github.com>
+Date:   Tue Nov 16 22:44:27 2021 +0700
+
+    CreatePaymentHistory (#17)
+    
+    * CreatePaymentHistory
+    
+    * Update PaymentHistory.cshtml
+    
+    Co-authored-by: HienNguyen120201 <90005023+HienNguyen120201@users.noreply.github.com>
+
+commit 14bdb10ea15f94fb4aa81081d5dac12009977197
+Author: HienNguyen120201 <90005023+HienNguyen120201@users.noreply.github.com>
+Date:   Tue Nov 16 22:43:28 2021 +0700
+
+    Update PaymentHistory.cshtml
+
+commit 1b4d1cd44049680be01c020c405d01f142cc951d
+Author: JeFlame <hoangvu130301@gmail.com>
+Date:   Tue Nov 16 22:35:33 2021 +0700
+
+    CreatePaymentHistory
+
+commit 4d8fa5af2d8b171cb82d5c1b43f7f5e9df402882
+Merge: be061a6 289bab6
+Author: luucongdinh113 <83592031+luucongdinh113@users.noreply.github.com>
+Date:   Tue Nov 16 22:12:50 2021 +0700
+
+    Merge branch 'Develop' of https://github.com/HienNguyen120201/EcommerceStore into Develop
+
+commit be061a6875fc763d9932e97d27181be71b964ee5
+Author: luucongdinh113 <83592031+luucongdinh113@users.noreply.github.com>
+Date:   Tue Nov 16 22:12:47 2021 +0700
+
+    Update PayMent.cshtml
+
+commit 289bab6c189e60bb813d7b36c8eaa32f6257a094
+Author: HienNguyen120201 <90005023+HienNguyen120201@users.noreply.github.com>
+Date:   Tue Nov 16 16:08:39 2021 +0700
+
+    add admin in layout
+
+commit b0822ff86c5dff06ba9b6671d19e07d4ae75c645
+Merge: 1dd18aa c58d564
+Author: luucongdinh113 <83592031+luucongdinh113@users.noreply.github.com>
+Date:   Tue Nov 16 15:15:03 2021 +0700
+
+    Merge branch 'Develop' of https://github.com/HienNguyen120201/EcommerceStore into Develop
+
+commit 1dd18aaa040fc18ea64d28f30f61d736cd93407d
+Author: luucongdinh113 <83592031+luucongdinh113@users.noreply.github.com>
+Date:   Tue Nov 16 15:13:23 2021 +0700
+
+    Update PayMent.cshtml
+
+commit c58d5645cb357bca7cc97817f93f6ae2ee054222
+Author: HienNguyen120201 <90005023+HienNguyen120201@users.noreply.github.com>
+Date:   Tue Nov 16 15:06:47 2021 +0700
+
+    fix một vài thứ
+
+commit 3bce9bef9a353685b1b9f20f9610c7b99b7166c3
+Author: luucongdinh113 <83592031+luucongdinh113@users.noreply.github.com>
+Date:   Mon Nov 15 09:57:11 2021 +0700
+
+    Update payment
+
+commit e332721eaa880919f76da6444af2cdfc38d4e25c
+Author: luucongdinh113 <83592031+luucongdinh113@users.noreply.github.com>
+Date:   Sun Nov 14 19:00:46 2021 +0700
+
+    Update history
+
+commit 7f1b154708f047bb0dc4de56e909608c6eb5d75d
+Author: HienNguyen120201 <90005023+HienNguyen120201@users.noreply.github.com>
+Date:   Sun Nov 14 16:06:07 2021 +0700
+
+    add view
+
+commit a79bb493b996f5c1a3deae945f8e997bfebe079a
+Author: Nam Nguyen <meomaythongminh3@gmail.com>
+Date:   Sun Nov 14 15:56:42 2021 +0700
+
+    Create PaymentMethod
+
+commit 89139991302d57d007fb8f3f18c14b6b59166ff2
+Author: HienNguyen120201 <90005023+HienNguyen120201@users.noreply.github.com>
+Date:   Sun Nov 14 15:55:47 2021 +0700
+
+    fix
+
+commit 07b52db35e287e95c28d1ffc699c79d15e6b4f54
+Author: luucongdinh113 <83592031+luucongdinh113@users.noreply.github.com>
+Date:   Sun Nov 14 15:10:31 2021 +0700
+
+    Update (#15)
+
+commit c927b2c59b3e97526579cd8f5649ea35d4dac23b
+Author: luucongdinh113 <83592031+luucongdinh113@users.noreply.github.com>
+Date:   Sun Nov 14 13:36:16 2021 +0700
+
+    Update
+
+commit d72811440527d04a431deae300fb0afeb05473bc
+Merge: a97820c 793e0ed
+Author: luucongdinh113 <83592031+luucongdinh113@users.noreply.github.com>
+Date:   Sat Nov 13 20:07:35 2021 +0700
+
+    Merge pull request #14 from HienNguyen120201/Payment
+    
+    Payment
+
+commit 793e0ed556254fb0c7f2395e178b44864128ff9a
+Merge: 2b233a5 a97820c
+Author: luucongdinh113 <83592031+luucongdinh113@users.noreply.github.com>
+Date:   Sat Nov 13 20:07:15 2021 +0700
+
+    Merge branch 'Develop' into Payment
+
+commit 2b233a5268d7f76e84133433d0359eb0496b7417
+Author: luucongdinh113 <83592031+luucongdinh113@users.noreply.github.com>
+Date:   Sat Nov 13 19:57:51 2021 +0700
+
+    Update payment and something
+
+commit 1b92fb59d4d8a18184380d338bfafdded67b4eda
+Author: binhbuibksg0123 <74866715+binhbuibksg0123@users.noreply.github.com>
+Date:   Sat Nov 13 18:10:06 2021 +0700
+
+    Mainpage
+    
+    initial version of mainpage
+
+commit a97820cfdabeb8bb7545fe48f70ab50b2b54bf93
+Author: HienNguyen120201 <90005023+HienNguyen120201@users.noreply.github.com>
+Date:   Sat Nov 13 14:31:29 2021 +0700
+
+    add notify
+
+commit 66f698392654c8a8f2b431ef9d4708f7770096f2
+Author: luucongdinh113 <83592031+luucongdinh113@users.noreply.github.com>
+Date:   Fri Nov 12 11:31:44 2021 +0700
+
+    complete payment (#13)
+    
+    Co-authored-by: HienNguyen120201 <90005023+HienNguyen120201@users.noreply.github.com>
+
+commit f1fe96ee62f67b0ef759fc78a80a048377ef9bf6
+Merge: e78dcf4 06f7179
+Author: HienNguyen120201 <90005023+HienNguyen120201@users.noreply.github.com>
+Date:   Fri Nov 12 11:31:33 2021 +0700
+
+    Merge branch 'Develop' into Payment
+
+commit e78dcf4028d0adcd80fa5e83c58c461db0be70f1
+Author: luucongdinh113 <83592031+luucongdinh113@users.noreply.github.com>
+Date:   Fri Nov 12 10:02:06 2021 +0700
+
+    complete payment
+
+commit 06f7179803528f142f11f118a14c96bb472a69e1
+Author: HienNguyen120201 <90005023+HienNguyen120201@users.noreply.github.com>
+Date:   Fri Nov 12 02:49:12 2021 +0700
+
+    complete
+
+commit 372576f258303649a675f6ad59d643cb8216cd06
+Author: HienNguyen120201 <90005023+HienNguyen120201@users.noreply.github.com>
+Date:   Thu Nov 11 22:20:28 2021 +0700
+
+    create adminn
+
+commit d938a844bce22895e361c9d94102f134ac12a2ac
+Author: binhbuibksg0123 <74866715+binhbuibksg0123@users.noreply.github.com>
+Date:   Thu Nov 11 16:35:06 2021 +0700
+
+    update db
+    
+    add admin attribute
+
+commit d2fe481002bd836b59e0eb5e7053d25578c1d828
+Author: HienNguyen120201 <90005023+HienNguyen120201@users.noreply.github.com>
+Date:   Wed Nov 10 01:56:31 2021 +0700
+
+    Complete InsertProduct (#12)
+
+commit 107fef8fba5f005ac1c42682883065e8f7d395d9
+Author: HienNguyen120201 <90005023+HienNguyen120201@users.noreply.github.com>
+Date:   Wed Nov 10 01:56:02 2021 +0700
+
+    Complete InsertProduct
+
+commit 55796d5ae2f0f6cc5e882d543de178b5498a40f3
+Author: binhbuibksg0123 <74866715+binhbuibksg0123@users.noreply.github.com>
+Date:   Tue Nov 9 09:23:52 2021 +0700
+
+    update database
+    
+    update database 09/11/2021
+
+commit 2ea1d92ace7c381e8e3b4722384cb210525f6c97
+Author: HienNguyen120201 <90005023+HienNguyen120201@users.noreply.github.com>
+Date:   Tue Nov 9 04:12:56 2021 +0700
+
+    Insert Product To DB
+
+commit 7c6dc5ffd570fe60ea0195e20965af667b76453b
+Author: HienNguyen120201 <90005023+HienNguyen120201@users.noreply.github.com>
+Date:   Tue Nov 9 00:10:52 2021 +0700
+
+    insert+ get evaluation (#11)
+
+commit 8e697708c208ee018da9abd20d95f0b37d425a95
+Author: HienNguyen120201 <90005023+HienNguyen120201@users.noreply.github.com>
+Date:   Tue Nov 9 00:10:07 2021 +0700
+
+    insert+ get evaluation
+
+commit 776c606b378886d245f53f44a937028498174f88
+Merge: 3a1b8b5 a103e1a
+Author: binhbuibksg0123 <74866715+binhbuibksg0123@users.noreply.github.com>
+Date:   Mon Nov 8 11:36:12 2021 +0700
+
+    Merge branch 'Develop' of https://github.com/HienNguyen120201/EcommerceStore into Develop
+
+commit 3a1b8b511e3f3ee8ad309ea325f9e088666c5199
+Author: binhbuibksg0123 <74866715+binhbuibksg0123@users.noreply.github.com>
+Date:   Mon Nov 8 11:35:17 2021 +0700
+
+    UpdateDb
+    
+    Add MainDesc attribute in Description entity
+
+commit a103e1a180999223669afd92c0e84519f4dc5c7e
+Author: HienNguyen120201 <90005023+HienNguyen120201@users.noreply.github.com>
+Date:   Mon Nov 8 11:27:47 2021 +0700
+
+    create des+filter (#10)
+
+commit 81d7894abc106038f9f11de94dda6f8e973602ce
+Author: HienNguyen120201 <90005023+HienNguyen120201@users.noreply.github.com>
+Date:   Mon Nov 8 11:26:44 2021 +0700
+
+    create des+filter
+
+commit 5644524ed0002144dd3ad48e8b9d917e6713cb33
+Author: binhbuibksg0123 <74866715+binhbuibksg0123@users.noreply.github.com>
+Date:   Mon Nov 8 11:20:20 2021 +0700
+
+    update database
+    
+    Add main desc attribute
+
+commit 4e9149d37942b9407d14a77619ed9c0707d5a65f
+Author: Nam Nguyen <75629713+hnamng2301@users.noreply.github.com>
+Date:   Sun Nov 7 21:44:26 2021 +0700
+
+    Update Introdution
+
+commit 2711a855a533d9d5e29f5344cb6bff799a93c164
+Author: Nam Nguyen <75629713+hnamng2301@users.noreply.github.com>
+Date:   Sat Nov 6 22:16:49 2021 +0700
+
+    Update README.md
+    
+    Add information for project
+
+commit ec8b5efb666f699837e830a749541675ecc8fb53
+Author: Nam Nguyen <75629713+hnamng2301@users.noreply.github.com>
+Date:   Sat Nov 6 22:16:12 2021 +0700
+
+    Create README.md
+    
+    Add information of project
+
+commit 93ff0fa9ac73ca9d2b5bb59f08ffe208062c43fc
+Author: HienNguyen120201 <90005023+HienNguyen120201@users.noreply.github.com>
+Date:   Sat Nov 6 18:56:52 2021 +0700
+
+    Store (#9)
+    
+    * create store
+    
+    * product
+
+commit 0fa519b6afba85faf4d60eb8862780337280b810
+Author: binhbuibksg0123 <74866715+binhbuibksg0123@users.noreply.github.com>
+Date:   Sat Nov 6 18:55:01 2021 +0700
+
+    update database (#8)
+    
+    Add attribute for product entity
+
+commit ac172c799a7dc02e05fb15f10fe0b9e034b811d0
+Author: HienNguyen120201 <90005023+HienNguyen120201@users.noreply.github.com>
+Date:   Sat Nov 6 18:53:50 2021 +0700
+
+    product
+
+commit bd075088327ec3ff86f93b71cfc3ab92fb17ab3f
+Author: binhbuibksg0123 <74866715+binhbuibksg0123@users.noreply.github.com>
+Date:   Sat Nov 6 09:13:12 2021 +0700
+
+    update database
+    
+    Add attribute for product entity
+
+commit 1b80d5be159e5c801b78de63fb7933b25162eaf8
+Author: HienNguyen120201 <90005023+HienNguyen120201@users.noreply.github.com>
+Date:   Sat Nov 6 01:55:57 2021 +0700
+
+    create store
+
+commit 671815ed7169305391beafdeb0800c89c8dc7aa4
+Author: binhbuibksg0123 <74866715+binhbuibksg0123@users.noreply.github.com>
+Date:   Fri Nov 5 21:48:36 2021 +0700
+
+    update database
+    
+    Add Evaluation entity and Rating property in product entity
+
+commit 208b8e4c627579981492599a2845a85a4222a2cc
+Author: HienNguyen120201 <90005023+HienNguyen120201@users.noreply.github.com>
+Date:   Fri Nov 5 15:48:13 2021 +0700
+
+    Layout (#6)
+    
+    * init
+    
+    * Init_layout
+    
+    * Update .suo
+    
+    * Sửa tiếng việt
+    
+    * Update site.css
+    
+    * xóa
+    
+    * xóa
+    
+    * .
+    
+    * Delete EcommerceStore.csprojAssemblyReference.cache
+    
+    Co-authored-by: binhbuibksg0123 <74866715+binhbuibksg0123@users.noreply.github.com>
+
+commit 755eb25a049435f357301dda75af1b9b2c625512
+Author: HienNguyen120201 <90005023+HienNguyen120201@users.noreply.github.com>
+Date:   Fri Nov 5 15:47:09 2021 +0700
+
+    Delete EcommerceStore.csprojAssemblyReference.cache
+
+commit 5e2156589f946bb35a05ad0a24610f1058064a74
+Author: HienNguyen120201 <90005023+HienNguyen120201@users.noreply.github.com>
+Date:   Fri Nov 5 15:35:18 2021 +0700
+
+    Update site.css
+
+commit fb3601c4bbf6cce4116f710663a8e8dfd9891094
+Author: HienNguyen120201 <90005023+HienNguyen120201@users.noreply.github.com>
+Date:   Fri Nov 5 15:23:58 2021 +0700
+
+    xóa
+
+commit e66a4cae069eb5057bf4535b825035052385f942
+Author: HienNguyen120201 <90005023+HienNguyen120201@users.noreply.github.com>
+Date:   Fri Nov 5 15:19:43 2021 +0700
+
+    create login+register
+
+commit d5a32d5c3c8eb45dcad297f0b9cca8c60a24fbe8
+Author: HienNguyen120201 <90005023+HienNguyen120201@users.noreply.github.com>
+Date:   Fri Nov 5 14:43:47 2021 +0700
+
+    create login+register
+
+commit d1dd65900dabe4d5d8b546bfe26fa3c8e0f9a4a9
+Author: binhbuibksg0123 <74866715+binhbuibksg0123@users.noreply.github.com>
+Date:   Fri Nov 5 12:48:55 2021 +0700
+
+    update database
+    
+    Remove color, storage attribute in product entity. Add ImgUrl attribute in product entity
+
+commit 24f15a7ed9ada31cd15f22be8970d27aeac4987b
+Author: binhbuibksg0123 <74866715+binhbuibksg0123@users.noreply.github.com>
+Date:   Fri Oct 29 12:22:27 2021 +0700
+
+    Create DataBase (#1)
+
+commit cb4878bab69055bbbec1a27246f06635456f5276
+Author: binhbuibksg0123 <74866715+binhbuibksg0123@users.noreply.github.com>
+Date:   Thu Oct 28 07:05:48 2021 +0700
+
+    Create DataBase
+
+commit b45ff7bfe1dadb61a5407f0e1798f28af42ff131
+Author: HienNguyen120201 <90005023+HienNguyen120201@users.noreply.github.com>
+Date:   Wed Oct 27 22:52:45 2021 +0700
+
+    Create .gitignore
+
+commit df48bdf6fede6ad9ff2dd3baa1a38b4c01bae896
+Author: HienNguyen120201 <90005023+HienNguyen120201@users.noreply.github.com>
+Date:   Wed Oct 27 22:51:50 2021 +0700
+
+    Initial commit
