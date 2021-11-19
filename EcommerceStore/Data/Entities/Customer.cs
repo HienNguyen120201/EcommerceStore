@@ -11,7 +11,10 @@ namespace EcommerceStore.Data.Entities
         public string FullName { get; set; }
         public bool Gender { get; set; }
         public int Point { get; set; }
+        public DateTime BirthDay { get; set; }
+        public bool Admin { get; set; }
 
         public List<Bill> Bills { get; set; }
+        public List<Evaluation> Evaluations { get; set; }
     }
 }

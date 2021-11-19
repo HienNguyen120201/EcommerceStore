@@ -23,11 +23,13 @@ namespace EcommerceStore.Data
             modelBuilder.ApplyConfiguration(new BillProductConfiguration());
             modelBuilder.ApplyConfiguration(new DescriptionConfiguration());
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
+            modelBuilder.ApplyConfiguration(new EvaluationConfiguration());
         }
         public DbSet<Customer> Customer { get; set; }
         public DbSet<Bill> Bill { get; set; }
         public DbSet<BillProduct> BillProduct { get; set; }
         public DbSet<Description> Description { get; set; }
         public DbSet<Product> Product { get; set; }
+        public DbSet<Evaluation> Evaluation { get; set; }
     }
 }

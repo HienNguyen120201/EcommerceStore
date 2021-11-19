@@ -26,17 +26,35 @@ namespace EcommerceStore.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("AddressReceive")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<Guid>("CustomerId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("DateCreatBill")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Huyen")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PaymentMethod")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Thon")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Tinh")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("TotalPrice")
                         .HasColumnType("int");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Xa")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("BillId");
 
@@ -67,6 +85,8 @@ namespace EcommerceStore.Migrations
 
                     b.HasKey("BillId", "ProductId");
 
+                    b.HasIndex("ProductId");
+
                     b.ToTable("BILLPRODUCT");
                 });
 
@@ -78,6 +98,12 @@ namespace EcommerceStore.Migrations
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
+
+                    b.Property<bool>("Admin")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("BirthDay")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -158,6 +184,9 @@ namespace EcommerceStore.Migrations
                     b.Property<string>("ImgUrl")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("MainDesc")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
@@ -168,6 +197,37 @@ namespace EcommerceStore.Migrations
                     b.ToTable("DESCRIPTION");
                 });
 
+            modelBuilder.Entity("EcommerceStore.Data.Entities.Evaluation", b =>
+                {
+                    b.Property<int>("EvalID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("CustomerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("EvalTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
+                    b.HasKey("EvalID");
+
+                    b.HasIndex("CustomerId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("EVALUATION");
+                });
+
             modelBuilder.Entity("EcommerceStore.Data.Entities.Product", b =>
                 {
                     b.Property<int>("ProductId")
@@ -175,11 +235,14 @@ namespace EcommerceStore.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Color")
+                    b.Property<string>("ImgUrl")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("OldPrice")
+                        .HasColumnType("int");
 
                     b.Property<int>("Price")
                         .HasColumnType("int");
@@ -187,10 +250,19 @@ namespace EcommerceStore.Migrations
                     b.Property<string>("Producer")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SellOff")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Special")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Status")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Storage")
+                    b.Property<int>("TimeSellOff")
                         .HasColumnType("int");
 
                     b.HasKey("ProductId");
@@ -343,12 +415,33 @@ namespace EcommerceStore.Migrations
                         .HasForeignKey("BillId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("EcommerceStore.Data.Entities.Product", "Product")
+                        .WithMany("BillProducts")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("EcommerceStore.Data.Entities.Description", b =>
                 {
                     b.HasOne("EcommerceStore.Data.Entities.Product", "Product")
                         .WithMany("Desc")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("EcommerceStore.Data.Entities.Evaluation", b =>
+                {
+                    b.HasOne("EcommerceStore.Data.Entities.Customer", "Customer")
+                        .WithMany("Evaluations")
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EcommerceStore.Data.Entities.Product", "Product")
+                        .WithMany("Evaluations")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

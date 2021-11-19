@@ -17,6 +17,7 @@ namespace EcommerceStore.Data.Configurations
             builder.Property(desc => desc.Desc);
             builder.Property(desc => desc.ImgUrl);
             builder.Property(desc => desc.ProductId);
+            builder.Property(desc => desc.MainDesc);
             builder.HasOne(desc => desc.Product)
                 .WithMany(product => product.Desc)
                 .HasForeignKey(desc => desc.ProductId);

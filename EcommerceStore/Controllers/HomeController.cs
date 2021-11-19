@@ -1,31 +1,84 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using EcommerceStore.Models;
+using EcommerceStore.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using EcommerceStore.Models;
+using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace EcommerceStore.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ICustomerService _customerService;
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ICustomerService customerService)
         {
             _logger = logger;
+            _customerService = customerService;        
+        }
+        public async Task<IActionResult> Index()
+        {
+            var products = await _customerService.GetAllProductAsync();
+            return View(products);
+        }
+        [HttpGet("/Login")]
+        public IActionResult Login()
+        {
+            return View(new LoginViewModel());
         }
 
-        public IActionResult Index()
+        [HttpPost("/Login")]
+        public async Task<IActionResult> Login(LoginViewModel loginViewModel)
         {
-            return View();
+            if (!ModelState.IsValid)
+            {
+                return View(loginViewModel);
+            }
+
+            var loginSucess = await _customerService.LoginAsync(loginViewModel.UserName, loginViewModel.Password);
+
+            if (loginSucess==1)
+            {
+                return View(loginViewModel);
+            }
+            else if(loginSucess==2)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return RedirectToAction("Revenue","Admin");
+            }    
         }
 
-        public IActionResult Privacy()
+        [HttpGet("/Register")]
+        public IActionResult Register()
         {
-            return View();
+            return View(new RegisterViewModel());
+        }
+
+        [HttpPost("/Register")]
+        public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(registerViewModel);
+            }
+            var registerSucess = await _customerService.RegisterAsync(registerViewModel);
+
+            if (!registerSucess)
+            {
+                return View(registerViewModel);
+            }
+
+            return RedirectToAction("Login");
+        }
+
+        [Route("Logout")]
+        public async Task<IActionResult> Logout()
+        {
+            await _customerService.SignOutAsync();
+            return RedirectToAction("Index");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

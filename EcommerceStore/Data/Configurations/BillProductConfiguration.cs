@@ -21,6 +21,9 @@ namespace EcommerceStore.Data.Configurations
             builder.HasOne(billProduct => billProduct.Bill)
                 .WithMany(bill => bill.Products)
                 .HasForeignKey(billProduct => billProduct.BillId);
+            builder.HasOne(billProduct => billProduct.Product)
+                .WithMany(product => product.BillProducts)
+                .HasForeignKey(billProduct => billProduct.ProductId);
         }
     }
 }
