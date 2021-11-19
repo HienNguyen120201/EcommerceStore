@@ -41,7 +41,7 @@
                                                     <div class="product-body">
                                                         <p class="product-category">@khuyenMai.Producer</p>
                                                         <h3 class="product-name"><a href="@Url.Action("Product","Product",new { id=khuyenMai.ProductId })">@khuyenMai.Name</a></h3>
-                                                        <h4 class="product-price price">@price</h4>
+                                                        <h4 class="product-price price">@price</h4><del class="product-old-price price">@khuyenMai.OldPrice</del>
                                                         <div class="product-rating">
                                                             @{
                                                                 for (int i = 0; i < khuyenMai.Rating; i++)
