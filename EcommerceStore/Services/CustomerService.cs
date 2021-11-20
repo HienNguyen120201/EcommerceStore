@@ -97,7 +97,8 @@ namespace EcommerceStore.Services
                                       Status = p.Status,
                                       Special = p.Special,
                                       SellOff = p.SellOff,
-                                      TimeSellOff = p.TimeSellOff
+                                      TimeSellOff = p.TimeSellOff,
+                                      OldPrice = p.OldPrice
                                   }).ToListAsync();
             return products;
         }
