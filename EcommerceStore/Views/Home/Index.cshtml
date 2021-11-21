@@ -24,7 +24,6 @@
                                 {
                                     if (khuyenMai.Special == "khuyenmai")
                                     {
-                                        var price = @khuyenMai.Price - ((@khuyenMai.Price*Int32.Parse(khuyenMai.SellOff))/100);
                                         <!-- product -->
                                         <form asp-action="InsertProduct" asp-controller="Product" method="post" onsubmit="notify()">
                                             <input type="hidden" name="product.InsertProductToCart.ProductId" value="@khuyenMai.ProductId" />
@@ -41,7 +40,7 @@
                                                     <div class="product-body">
                                                         <p class="product-category">@khuyenMai.Producer</p>
                                                         <h3 class="product-name"><a href="@Url.Action("Product","Product",new { id=khuyenMai.ProductId })">@khuyenMai.Name</a></h3>
-                                                        <h4 class="product-price price">@price</h4><del class="product-old-price price">@khuyenMai.OldPrice</del>
+                                                        <h4 class="product-price price">@khuyenMai.Price</h4><del class="product-old-price price">@khuyenMai.OldPrice</del>
                                                         <div class="product-rating">
                                                             @{
                                                                 for (int i = 0; i < khuyenMai.Rating; i++)
