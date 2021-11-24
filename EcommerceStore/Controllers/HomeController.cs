@@ -34,11 +34,11 @@ namespace EcommerceStore.Controllers
             {
                 return View(loginViewModel);
             }
-
             var loginSucess = await _customerService.LoginAsync(loginViewModel.UserName, loginViewModel.Password);
 
             if (loginSucess==1)
             {
+                loginViewModel.ErrorMessage = "Tài khoản không tồn tại";
                 return View(loginViewModel);
             }
             else if(loginSucess==2)
@@ -64,10 +64,15 @@ namespace EcommerceStore.Controllers
             {
                 return View(registerViewModel);
             }
+            if(registerViewModel.Password!=registerViewModel.RePassword){
+                registerViewModel.ErrorMessage = "Mật khẩu nhập lại không trùng nhau";
+                return View(registerViewModel);
+            }
             var registerSucess = await _customerService.RegisterAsync(registerViewModel);
 
             if (!registerSucess)
             {
+                registerViewModel.ErrorMessage = "Tài khoản đã tồn tại";
                 return View(registerViewModel);
             }
 

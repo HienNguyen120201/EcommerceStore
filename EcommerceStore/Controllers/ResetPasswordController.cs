@@ -24,6 +24,9 @@ namespace EcommerceStore.Controllers
         public async Task<IActionResult> Index([FromForm] string username)
         {
             var success = await _resetPaswordService.SendMailResetPasswordAsync(username);
+            if(success==false){
+                return View("Index","Tài khoản không tồn tại");
+            }
             return RedirectToAction(nameof(SendMailResetPasswordSuccess));
         }
 
