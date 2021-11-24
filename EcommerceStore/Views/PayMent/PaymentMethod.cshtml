@@ -13,6 +13,11 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" crossorigin="anonymous" />
 
     <link rel="stylesheet" type="text/css" href="/css/payment.css" />
+    <style>
+        .currSign:after {
+            content: ' VND';
+        }
+    </style>
 </head>
 
 <body>
@@ -73,7 +78,7 @@
                                                 <div class="right-side">
                                                     <div class="new">
                                                         <h4><strong class="text-dark">Thanh toán</strong></h4>
-                                                        <h4><strong class="text-dark">@(Model.Total) VNĐ</strong></h4>
+                                                        <h4><strong class="text-dark price">@(Model.Total)</strong></h4>
                                                     </div>
                                                 </div>
                                             </div>
@@ -335,7 +340,7 @@
                                                 {
                                                     <h4><b>Tài khoản: 123456789</b></h4>
                                                     <h4><b>Ngân hàng: ViettinBank</b></h4>
-                                                    <h4><b>Số tiền: @(Model.Total) VNĐ</b></h4>
+                                                    <h4><b>Số tiền: </b><b class="price">@(Model.Total)</b></h4>
                                                     <h4><b>Nội dung: Thanh toán hóa đơn.</b></h4>
                                                 }
                                                 else
@@ -404,6 +409,13 @@
         }
         function closeNav() {
             document.getElementById("nav").style.height = "0%";
+        }
+        let x = document.querySelectorAll(".price");
+        for (let i = 0, len = x.length; i < len; i++) {
+            let num = Number(x[i].innerHTML)
+                .toLocaleString('en');
+            x[i].innerHTML = num;
+            x[i].classList.add("currSign");
         }
     </script>
 </body>
