@@ -9,5 +9,6 @@ namespace EcommerceStore.Models
         public int ProductPrice { get; set; }
         public int Quantity { get; set; }
         public int TotalProductPrice { get; set; }
+        public string ImgUrl { get; set; }
     }
 }

@@ -221,6 +221,7 @@ namespace EcommerceStore.Services
                                        select new PaymentDetailViewModel
                                        {
                                            BillId = b.BillId,
+                                           ImgUrl = g.ImgUrl,
                                            ProductName = g.Name,
                                            ProductPrice = g.Price,
                                            Quantity = b.Quantity,
