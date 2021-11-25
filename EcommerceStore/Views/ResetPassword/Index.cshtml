@@ -1,7 +1,7 @@
 ﻿@{
     Layout = null;
 }
-@model EcommerceStore.Models.RegisterViewModel
+@model string
 
 
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
@@ -51,6 +51,9 @@
                                    placeholder="Tên tài khoản... "
                                    name="username" />
                         </div>
+                        @if(Model!=null){
+                            <span class="text-danger">@Model</span>
+                        }
                         <div class="form-group">
                             <input type="submit"
                                    value="Khôi phục"

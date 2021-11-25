@@ -40,6 +40,7 @@
                 </div>
                 <div class="card-body">
                     <form asp-controller="Home" asp-action="Register" method="post">
+                        <span asp-validation-for="UserName" class="text-danger"></span>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">
@@ -50,8 +51,9 @@
                                    required="required"
                                    class="form-control"
                                    placeholder="Tên tài khoản"
-                                   name="registerViewModel.UserName" />
+                                   asp-for="UserName" />
                         </div>
+                        <span asp-validation-for="Password" class="text-danger"></span>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">
@@ -62,8 +64,9 @@
                                    required="required"
                                    class="form-control"
                                    placeholder="Mật khẩu (đủ 4 loại)"
-                                   name="registerViewModel.Password" />
+                                   asp-for="Password" />
                         </div>
+                        <span asp-validation-for="RePassword" class="text-danger"></span>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">
@@ -74,8 +77,9 @@
                                    class="form-control"
                                    required="required"
                                    placeholder="Xác nhận mật khẩu"
-                                   name="registerViewModel.RePassword" />
+                                   asp-for="RePassword" />
                         </div>
+                        <span asp-validation-for="FullName" class="text-danger"></span>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">
@@ -86,9 +90,9 @@
                                    class="form-control"
                                    required="required"
                                    placeholder="Họ và tên"
-                                   name="registerViewModel.FullName" />
+                                   asp-for="FullName" />
                         </div>
-
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">
@@ -99,9 +103,9 @@
                                    required="required"
                                    class="form-control"
                                    placeholder="Số điện thoại"
-                                   name="registerViewModel.PhoneNumber" />
+                                   asp-for="PhoneNumber" />
                         </div>
-
+                        <span asp-validation-for="Email" class="text-danger"></span>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">
@@ -112,29 +116,34 @@
                                    required="required"
                                    class="form-control"
                                    placeholder="Email"
-                                   name="registerViewModel.Email" />
+                                   asp-for="Email" />
                         </div>
-
+                        <span asp-validation-for="Birthday" class="text-danger"></span>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">
                                     <i class="fas fa-birthday-cake"></i>
                                 </span>
                             </div>
-                            <input type="date" id="birthdaytime" name="registerViewModel.Birthday" class="form-control">
+                            <input type="date" id="birthdaytime" asp-for="Birthday" class="form-control">
                         </div>
-
+                        <span asp-validation-for="Gender" class="text-danger"></span>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">
                                     <i class="fas fa-venus-mars"></i>
                                 </span>
                             </div>
-                            <select class="form-control" name="registerViewModel.Gender">
+                            <select class="form-control" asp-for="Gender">
                                 <option value="true">Nam</option>
                                 <option value="false">Nữ</option>
                             </select>
                         </div>
+                        @if(Model!=null){
+                            @if(Model.ErrorMessage!=null){
+                                <span class="text-danger">@Model.ErrorMessage</span>
+                            }
+                        }
                         <div class="form-group">
                             <input type="submit"
                                    value="Đăng ký"

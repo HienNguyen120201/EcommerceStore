@@ -24,24 +24,35 @@ namespace EcommerceStore.Controllers
         public async Task<IActionResult> Index([FromForm] string username)
         {
             var success = await _resetPaswordService.SendMailResetPasswordAsync(username);
+            if(success==false){
+                return View("Index","Tài khoản không tồn tại");
+            }
             return RedirectToAction(nameof(SendMailResetPasswordSuccess));
         }
 
         [HttpGet("/ResetPasswordHandle/{customerId}")]
         public IActionResult ResetPasswordHandle([FromRoute] Guid customerId)
         {
-            return View(customerId);
+            return View();
         }
 
         [HttpPost("/ResetPasswordHandle/{customerId}")]
         public async Task<IActionResult> ResetPasswordHandle([FromRoute] Guid customerId, [FromForm] ResetPasswordViewModel resetPasswordViewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(resetPasswordViewModel);
+            }
             var success = await _resetPaswordService.ResetPasswordAsync(customerId, resetPasswordViewModel);
+            if(!success){
+                resetPasswordViewModel.ErrorMessage = "Mật khẩu nhập lại khồng chính xác";
+                return View(resetPasswordViewModel);
+            }
             if (success)
             {
                 return RedirectToAction(nameof(ResetPasswordSuccess));
             }
-            return View(customerId);
+            return View();
         }
 
         public IActionResult ResetPasswordSuccess()

@@ -51,7 +51,7 @@ namespace EcommerceStore.Services
         {
             var emailFrom = _config.GetValue<string>("EmailInfo:Email");
             var emailPassword = _config.GetValue<string>("EmailInfo:Password");
-            string title = "[RESTAURANT] Đổi mật khẩu tài khoản";
+            string title = "Đổi mật khẩu tài khoản";
 
             string body = string.Empty;
             var filePath = Path.Combine(_environment.WebRootPath, "Template", "mail-reset-password.html");
