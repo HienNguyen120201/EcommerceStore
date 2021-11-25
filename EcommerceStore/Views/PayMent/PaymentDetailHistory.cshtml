@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "PaymentDetailHistory";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    string[] PaymentHeader = new string[] { "STT", "Tên sản phẩm", "Giá (VNĐ)", "Số Lượng", "Tổng (VNĐ)" };
+    string[] PaymentHeader = new string[] { "STT", "Tên sản phẩm", "Hình ảnh", "Giá (VNĐ)", "Số Lượng", "Tổng (VNĐ)" };
 }
 @model List<PaymentDetailViewModel>
 @{
@@ -41,13 +41,14 @@
                             {
                                 foreach (var Data in Model)
                                 {
-                                    <tr>
-                                        <td class="text-center">@(i++)</td>
-                                        <td class="text-center">@Data.ProductName</td>
-                                        <td class="text-center">@Data.ProductPrice</td>
-                                        <td class="text-center">@Data.Quantity</td>
-                                        <td class="text-center">@Data.TotalProductPrice</td>
-                                    </tr>
+                                        <tr>
+                                            <td class="text-center">@(i++)</td>
+                                            <td class="text-center">@Data.ProductName</td>
+                                            <td><img src="@(Data.ImgUrl)" width="60" height="60"></td>
+                                            <td class="text-center">@Data.ProductPrice</td>
+                                            <td class="text-center">@Data.Quantity</td>
+                                            <td class="text-center">@Data.TotalProductPrice</td>
+                                        </tr>
                                 }
                             }
                             else
