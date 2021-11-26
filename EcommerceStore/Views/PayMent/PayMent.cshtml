@@ -3,6 +3,11 @@
         .enMoney:after {
             content: ' ₫';
         }
+		.swal-wide{
+		width:500px !important;
+		height:350px !important;
+		font-size: 1.7rem !important;
+		}
 </style>
 <form asp-controller="PayMent" asp-action="PayMent" method="post" id="payment" onsubmit="return kiemtra()"></form>
 <div class="section">
@@ -95,7 +100,7 @@
 														</a>
 														</td>
 														<td class="price1 text-right"style="width: 110px">@(Data.ProductPrice)</td>
-														<form asp-controller="PayMent" asp-action="PayMent" method="post">
+														<form asp-controller="PayMent" asp-action="PayMent" method="post" onsubmit="update()">
 														<td class="text-center"style="width: 130px">
 															<input class="input1" type="hidden" name="bill.Name" value=""/>
 															<input class="input2" type="hidden" name="bill.Hamlet"  value="" />
@@ -272,8 +277,8 @@ function kiemtra(){
 		  icon: 'error',
 	      title: 'Oops...',
 		  text: 'Vui lòng nhập Họ và Tên!',
-		  showConfirmButton: false,
-		  timer: 1300
+		  customClass: 'swal-wide',
+		  timer: 4000
 		})
         return false;
     }
@@ -282,8 +287,8 @@ function kiemtra(){
 		  icon: 'error',
 	      title: 'Oops...',
 		  text: 'Vui lòng nhập Số nhà/Tên đường - Thôn!',
-		  showConfirmButton: false,
-		  timer: 1300
+		  customClass: 'swal-wide',
+		  timer: 4000
 		})
         return false;
     } 
@@ -292,8 +297,8 @@ function kiemtra(){
 		  icon: 'error',
 	      title: 'Oops...',
 		  text: 'Vui lòng nhập Xã - Phường - Thị trấn!',
-		  showConfirmButton: false,
-		  timer: 1300
+		  customClass: 'swal-wide',
+		  timer: 4000
 		})
         return false;
     }
@@ -302,8 +307,8 @@ function kiemtra(){
 		  icon: 'error',
 	      title: 'Oops...',
 		  text: 'Vui lòng nhập Quận - Huyện - Thành phố!',
-		  showConfirmButton: false,
-		  timer: 1300
+		  customClass: 'swal-wide',
+		  timer: 4000
 		})
         return false;
     }
@@ -312,8 +317,8 @@ function kiemtra(){
 		  icon: 'error',
 	      title: 'Oops...',
 		  text: 'Vui lòng nhập Tỉnh - Thành phố!',
-		  showConfirmButton: false,
-		  timer: 1300
+		  customClass: 'swal-wide',
+		  timer: 4000
 		})
         return false;
     }
@@ -322,12 +327,40 @@ function kiemtra(){
 		  icon: 'error',
 	      title: 'Oops...',
 		  text: 'Vui lòng nhập Số điện thoại!',
-		  showConfirmButton: false,
-		  timer: 1300
+		  customClass: 'swal-wide',
+		  timer: 4000
 		})
         return false;
     }	
+<<<<<<< Updated upstream
+=======
+	var gender_check = $('input:radio[class=dinh]:checked').val();
+	if ( !gender_check ) {
+		Swal.fire({
+		  icon: 'error',
+	      title: 'Oops...',
+		  text: 'Vui lòng chọn phương thức thanh toán!',
+		  customClass: 'swal-wide',
+		  timer: 4000
+		})
+		return false;
+	}
+>>>>>>> Stashed changes
     return true;
+}
+function update(){
+		Swal.fire({  
+		  title: 'Bạn muốn cập nhật số lượng sản phẩm trong giỏ hàng?',  
+		  showDenyButton: true,  showCancelButton: true,  
+		  confirmButtonText: `Có`,  
+		  denyButtonText: `Không`,
+		}).then((result) => {   
+			if (result.isConfirmed) {    
+    			Swal.fire('Saved!', '', 'success')  
+			} else if (result.isDenied) {    
+    			Swal.fire('Changes are not saved', '', 'info')  
+ 			}
+		});
 }
 </script>
 }
