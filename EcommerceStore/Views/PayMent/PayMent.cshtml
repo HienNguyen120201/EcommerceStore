@@ -3,6 +3,11 @@
         .enMoney:after {
             content: ' ₫';
         }
+		.swal-wide{
+			width:500px !important;
+			height:350px !important;
+			font-size: 1.7rem !important;
+		}
 </style>
 <form asp-controller="PayMent" asp-action="PayMent" method="post" id="payment" onsubmit="return kiemtra()"></form>
 <div class="section">
@@ -148,7 +153,7 @@
 						if(Model!=null && Model.Total!=0 &&Model.ListProduct.Count!=0)
 						{
 						<div class="input-checkbox">
-							<input type="checkbox" id="terms" required="required" checked>
+							<input type="checkbox" id="terms" form="payment" checked>
 							<label for="terms">
 								<span></span>
 								Tôi đồng ý với các <a href="#" style="color: blue;">Điều khoản & và điều kiện</a>
@@ -266,67 +271,77 @@ function kiemtra(){
 	var d4 = document.getElementById("input44").value;
 	var d5 = document.getElementById("input55").value;
 	var d6 = document.getElementById("input66").value;
-
-    if (d1=="") { //quy tắc 1
+	if(document.getElementById("terms").checked == false)
+	{
+		 Swal.fire({
+		  icon: 'error',
+	      title: 'Oops...',
+		  text: 'Vui lòng chọn Tôi đồng ý với các điều khoản & và điều kiện!',
+		  customClass: 'swal-wide',
+		  timer: 2000
+		})
+        return false;
+	}
+    if (d1=="") {
 		  Swal.fire({
 		  icon: 'error',
 	      title: 'Oops...',
 		  text: 'Vui lòng nhập Họ và Tên!',
-		  showConfirmButton: false,
-		  timer: 1300
+		  customClass: 'swal-wide',
+		  timer: 2000
 		})
         return false;
     }
-    if (d2=="") { //quy tắc 1
+    if (d2=="") {
         Swal.fire({
 		  icon: 'error',
 	      title: 'Oops...',
 		  text: 'Vui lòng nhập Số nhà/Tên đường - Thôn!',
-		  showConfirmButton: false,
-		  timer: 1300
+		  customClass: 'swal-wide',
+		  timer: 2000
 		})
         return false;
     } 
-	if (d3=="") { //quy tắc 1
+	if (d3=="") {
 		Swal.fire({
 		  icon: 'error',
 	      title: 'Oops...',
 		  text: 'Vui lòng nhập Xã - Phường - Thị trấn!',
-		  showConfirmButton: false,
-		  timer: 1300
+		  customClass: 'swal-wide',
+		  timer: 2000
 		})
         return false;
     }
-	if (d4=="") { //quy tắc 1
+	if (d4=="") {
 		Swal.fire({
 		  icon: 'error',
 	      title: 'Oops...',
 		  text: 'Vui lòng nhập Quận - Huyện - Thành phố!',
-		  showConfirmButton: false,
-		  timer: 1300
+		  customClass: 'swal-wide',
+		  timer: 2000
 		})
         return false;
     }
-	if (d5=="") { //quy tắc 1
+	if (d5=="") {
 		Swal.fire({
 		  icon: 'error',
 	      title: 'Oops...',
 		  text: 'Vui lòng nhập Tỉnh - Thành phố!',
-		  showConfirmButton: false,
-		  timer: 1300
+		  customClass: 'swal-wide',
+		  timer: 2000
 		})
         return false;
     }
-	if (d6=="") { //quy tắc 1
+	if (d6=="") {
 		Swal.fire({
 		  icon: 'error',
 	      title: 'Oops...',
 		  text: 'Vui lòng nhập Số điện thoại!',
-		  showConfirmButton: false,
-		  timer: 1300
+		  customClass: 'swal-wide',
+		  timer: 2000
 		})
         return false;
-    }	
+    }
     return true;
 }
 </script>
