@@ -186,13 +186,6 @@ namespace EcommerceStore.Services
             bill_null.Tinh = bill.Province;
             bill_null.PhoneNumber = bill.Telephone;
             bill_null.DateCreatBill = DateTime.UtcNow;
-            if (bill_null.TotalPrice > 10000000)
-            {
-                var updatePoint = await (from c in _context.Customer
-                                         where c.Id == customer.Id
-                                         select c).FirstOrDefaultAsync();
-                updatePoint.Point += bill_null.TotalPrice / 10000000;
-            }    
             _context.SaveChanges();
             return true;
         }
@@ -220,6 +213,7 @@ namespace EcommerceStore.Services
                                        where b.BillId == billId
                                        select new PaymentDetailViewModel
                                        {
+                                           ProductId= g.ProductId,
                                            BillId = b.BillId,
                                            ImgUrl = g.ImgUrl,
                                            ProductName = g.Name,
@@ -251,8 +245,14 @@ namespace EcommerceStore.Services
                                       where b.CustomerId == customer.Id && b.PaymentMethod == string.Empty
                                       select b).FirstOrDefaultAsync();
             updateMethod.PaymentMethod = payment.PaymentMethod;
-
             updateMethod.DateCreatBill = DateTime.UtcNow;
+            if (updateMethod.TotalPrice > 10000000)
+            {
+                var updatePoint = (from c in _context.Customer
+                                         where c.Id == customer.Id
+                                         select c).FirstOrDefault();
+                updatePoint.Point += updateMethod.TotalPrice / 10000000;
+            }
             _context.SaveChanges();
         }
     }
