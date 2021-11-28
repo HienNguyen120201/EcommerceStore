@@ -96,7 +96,7 @@ namespace EcommerceStore.Services
         }
         public async Task<bool> DeleteProductAsync(ClaimsPrincipal user, BillAndBillDetailViewModel infor)
         {
-            var customer = await _userManager.GetUserAsync(user);
+           var customer = await _userManager.GetUserAsync(user);
             var product = await (from b in _context.Bill
                                  from c in _context.BillProduct
                                  where b.CustomerId == customer.Id && b.PaymentMethod == string.Empty && b.BillId == c.BillId && c.ProductId == infor.Product.ProductId
